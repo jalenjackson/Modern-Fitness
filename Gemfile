@@ -54,3 +54,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+gem 'bootstrap-sass'
+gem 'annotate'
+# gem 'haml'
+gem 'simple_form'

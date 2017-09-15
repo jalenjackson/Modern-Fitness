@@ -1,0 +1,14 @@
+<h3>
+  <%= link_to "Add New Post", new_post_path %>
+</h3>
+<% @posts.each do |p| %>
+  <h2>
+    <%= link_to p.title, p %>
+  </h2>
+  <p>
+    Published
+    <%= time_ago_in_words(p.created_at) %>
+    by
+    <%= p.user.email %>
+  </p>
+<% end %>
