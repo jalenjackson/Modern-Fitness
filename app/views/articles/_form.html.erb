@@ -1,0 +1,62 @@
+<div class="new-article">
+
+<%= form_with(model: @article, local: true) do |form| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <div>
+      <div class="wrapper">
+        <div class="material-textfield blue">
+          <%= form.text_field :title , :required => true, class: "title-input" %>
+          <label data-content="What Are We Going To Name This Article?"></label>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="file-upload">
+        <label for="upload" class="file-upload__label">Upload A Cover Image For Your Article</label>
+        <%= form.file_field :cover , class: "file-upload__input", id: "upload"  %>
+      </div>
+    </div>
+
+
+  <div class="actions">
+    <%= form.button "Start Writing!", class: "submit-btn" , data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>" }%>
+  </div>
+<% end %>
+
+</div>
+
+<script>
+    $("input:file").change(function (){
+        $(".file-upload__label").css({
+            background:"white",
+            color: "black"
+        });
+    });
+
+    $('.title-input').on( 'keyup', function () {
+        if($(".title-input").val() == ''){
+            $(".submit-btn").css({
+                opacity: "0.3",
+                pointerEvents: "none"
+            });
+        } else {
+            $(".submit-btn").css({
+                opacity: "1",
+                pointerEvents: "auto"
+            });
+        }
+    });
+</script>

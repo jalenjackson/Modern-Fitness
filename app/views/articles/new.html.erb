@@ -1,0 +1,17 @@
+
+<%= render 'partials/nav' %>
+
+<div class="new-article-page">
+  <% if user_signed_in? %>
+
+      <%= render 'form', article: @article %>
+
+  <% end %>
+
+</div>
+
+<script>
+  $(".main-navbar a ").css({
+      color: "white"
+  })
+</script>

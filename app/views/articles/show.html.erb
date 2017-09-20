@@ -1,0 +1,68 @@
+<%= render 'partials/nav' %>
+
+<div style=" margin-top: 130px; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= @article.cover.url(:large) %>) center center no-repeat; background-size: cover" class="image-header">
+  <h1><%= @article.title %></h1>
+
+  <a href="/articles/<%= @article.id %>/edit"><button class="go-back">Keep Editing</button></a>
+  <% if current_user.id == @article.user.id %>
+       <% if @article.ispublished? == false %>
+    <%= link_to publish_article_path(@article), :method => :put do %>
+          <button class="publish-btn">Publish Story</button>
+       <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+
+<div class="article-submitted">
+  <div class="article-overlay">
+    <h1>Congrats <%= @article.user.email %></h1>
+    <h1>Your Article Was Published!</h1>
+    <i class="fa fa-times fa-times-article"></i>
+
+  </div>
+
+  <img src="https://ak8.picdn.net/shutterstock/videos/16682533/thumb/1.jpg"/>
+</div>
+
+
+
+
+<div style="margin-top:70px;" class="fr-view">
+  <%= raw @article.body %>
+</div>
+
+
+
+<script>
+
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+     var disqus_config = function () {
+     this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     };
+     */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://tellafiction-com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+
+    $(".publish-btn").click(function(){
+        $(".publish-btn").fadeOut("slow");
+        $(".article-submitted").css({
+            opacity: "1",
+            pointerEvents: "auto"
+        })
+    });
+
+    $(".fa-times").click(function(){
+        $(".article-submitted").fadeOut("slow");
+    });
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+

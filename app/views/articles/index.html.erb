@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Articles</h1>
+
+
+    <% @articles.each do |article| %>
+  <% if article.ispublished? %>
+        <div class="articles-box">
+
+          <a href = "/articles/<%= article.id %>">
+            <h1><%= article.title %></h1>
+          </a>
+
+          <a href = "/articles/<%= article.id %>">
+            <img src="<%= article.cover.url(:medium) %>"/>
+          </a>
+
+          <p><%= article.user.email %></p>
+        </div>
+
+  <% end %>
+    <% end %>
+
+
+<br>
+
+<%= link_to 'New Article', new_article_path %>
