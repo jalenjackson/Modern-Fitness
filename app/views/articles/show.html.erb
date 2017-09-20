@@ -1,6 +1,6 @@
 <%= render 'partials/nav' %>
 
-<div style=" margin-top: 130px; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= @article.cover.url(:large) %>) center center no-repeat; background-size: cover" class="image-header">
+<div style=" background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= @article.cover.url(:large) %>) center center no-repeat; background-size: cover" class="image-header">
   <h1><%= @article.title %></h1>
 
   <a href="/articles/<%= @article.id %>/edit"><button class="go-back">Keep Editing</button></a>
