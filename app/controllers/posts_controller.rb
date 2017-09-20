@@ -6,7 +6,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = current_user.posts.build
+    if current_user.nil?
+      redirect_to user_session_path
+    else
+      @post = current_user.posts.build
+    end
+
   end
 
   def create
