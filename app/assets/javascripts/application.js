@@ -43,6 +43,8 @@
 //= require plugins/special_characters.min.js
 //= require plugins/url.min.js
 //= require plugins/video.min.js
+//= require jquery.slick
+
 //= require_tree .
 
 

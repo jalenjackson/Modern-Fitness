@@ -3,7 +3,6 @@
 <div class="main-navbar">
   <i style="color:black; font-size:40px;" class="fa fa-bars" aria-hidden="true"></i>
 
-  <div class="design-line"></div>
   <div class="left-side-nav-items">
     <a class="hover-link" href = "/articles">Articles</a>
     <%= link_to 'Forum', posts_path, :class => 'navbar-link' %>
@@ -12,7 +11,9 @@
   </div>
 
   <div class="title-container">
-      <img class="logo" src="http://massardo.com/wp-content/uploads/2017/01/fitness-dude-logo-149BA59B94-seeklogo.com_.png"/>
+    <a href="/">
+      <img class="logo" src="http://kinetik-fitness.com/wp-content/themes/rockstar_theme/icon_packs/icons_white/youth_icon.png"/>
+    </a>
   </div>
 
 
@@ -80,75 +81,8 @@
 
 <script>
 
-    $(".logo").click(function(){
-        window.location.href = "/";
-    });
 
-    $(window).scroll(function (event) {
-        var scroll = $(window).scrollTop();
-        if(scroll >= 70){
-            $(".main-navbar").css({
-                background:"white",
-                height:"80px",
-                borderBottom: "7px solid black",
-                zIndex: "6"
-            });
-            $(".left-side-nav-items").css({
-                marginTop: "30px"
-            });
-            $(".design-line").hide();
-            $(".fa-bars").css({
-                marginTop: "30px"
-            });
-            $(".lower-overlay").css({
-                top: "50px"
-            });
-            $(".profile-pic").addClass("move-down");
-            $(".title-container").css({
-                marginTop: "25px"
-            });
-            $(".right-side-nav-items").css({
-                marginTop: "25px"
-            });
-            $(".search-away").css({
-                top: "80px"
-            });
-            $(".animated-dropdown").css({
-                marginTop: "-70px"
-            });
-        } else if(scroll < 70) {
-            $(".main-navbar").css({
-                background:"none",
-                height:"150px",
-                borderBottom: "none",
-                zIndex: "0"
-            });
-            $(".design-line").show();
 
-            $(".search-away").css({
-                top: "120px"
-            });
-            $(".fa-bars").css({
-                marginTop: "60px"
-            });
-            $(".profile-pic").removeClass("move-down");
-            $(".left-side-nav-items").css({
-                marginTop: "75px"
-            });
-            $(".lower-overlay").css({
-                top: "150px"
-            });
-            $(".animated-dropdown").css({
-                marginTop: "-30px"
-            });
-            $(".title-container").css({
-                marginTop: "70px"
-            });
-            $(".right-side-nav-items").css({
-                marginTop: "70px"
-            });
-        }
-    });
     $(".lower-overlay").hide();
     $(".search-input").hide();
     $(".animated-dropdown").hide();

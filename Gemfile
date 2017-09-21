@@ -24,6 +24,9 @@ gem 'paperclip'
 
 gem 'aws-sdk'
 
+gem "jquery-slick-rails"
+
+
 
 
 gem 'jquery-rails'

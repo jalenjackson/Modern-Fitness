@@ -2,15 +2,12 @@
 @import "bootstrap";
 @import "font-awesome";
 
-@font-face {
-  font-family: 'future';
-  src: url('futura.ttf');
-}
+
 
 body, html{
   width:100%;
   height:100%;
-  background:rgb(245,245,245);
+  background:rgb(31,31,31);
   margin:0;
   padding:0;
   overflow-x: hidden;
@@ -63,7 +60,7 @@ a{
 }
 
 .main-navbar a {
-  color: black;
+  color: white;
   font-size:13px;
   text-transform: uppercase;
   letter-spacing:2px;
@@ -368,6 +365,13 @@ a{
 
 }
 
+.hot-product-overlay h1 {
+  font-size:18px;
+  font-family: 'Josefin Sans', sans-serif !important;
+  color:white;
+  margin-left:15px;
+}
+
 .main-hot-container{
   width:100%;
   height:500px;
@@ -376,24 +380,28 @@ a{
 
 .main-hot-side-img{
   position: absolute;
-  top:0;
-  left:35%;
-  width:65%;
-  height:200%;
+  top:50px;
+  left:60%;
+  width:35%;
+  height:130%;
   background:rgb(50,50,50);
   overflow: hidden;
 }
 
-.main-hot-side-img img {
 
-  position: absolute;
-  top:0px;
+
+.side-img-cont{
   width:100%;
-  left:0px;
-  height:100%;
+  height:300px;
+  overflow: hidden;
+  background:red;
+  position: relative;
+}
 
-
-
+.side-img-cont img {
+  width:100%;
+  height:auto;
+  position: relative;
 }
 
 .main-hot-container h1 {
@@ -555,8 +563,9 @@ a,p,h2,h3{
 .product-of-the-week{
   width:96.5%;
   height:600px;
-  margin-top:50px;
-  background: rgb(25,25,25);
+  margin-top:190px;
+  transform: translateY(100px);
+  background: rgb(50,50,50);
   position: relative;
   overflow: hidden;
 }
@@ -662,7 +671,7 @@ a,p,h2,h3{
 .two-container{
   width:100%;
   height:500px;
-  margin-top:50px;
+  margin-top:200px;
   white-space:nowrap;
 
 }
@@ -807,9 +816,9 @@ a,p,h2,h3{
 
 
 .title-container img {
-  width:50px;
-  height:50px;
-  transform: translateY(-19px);
+  width:70px;
+  height:70px;
+  transform: translateY(-29px);
 }
 
 .right-side-nav-items {
@@ -1142,4 +1151,169 @@ a,p,h2,h3{
     font-size:13px !important;
     width:200px !important;
   }
+}
+
+
+.header-image {
+  width:100%;
+  height:50%;
+  background:red;
+  position: relative;
+}
+
+.quick-link-nav {
+  width:100%;
+  height:70px;
+  background:blue;
+}
+
+
+.slide {
+  height: 300px;
+  width:150px;
+  background:white;
+  margin-left: 30px;
+}
+
+.slick-next {
+  position: absolute;
+  right: 15px;
+  top:160px;
+  width:65px;
+  height:65px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.55);
+  background:white;
+  border-radius: 100%;
+  border:none;
+  color: grey;
+  font-size:30px;
+
+}
+
+.slick-prev {
+  position: absolute;
+  left: 15px;
+  top:160px;
+  width:65px;
+  height:65px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.55);
+  background:white;
+  border-radius: 100%;
+  border:none;
+  color: grey;
+  font-size:30px;
+  z-index: 9999999999999;
+}
+
+
+.slick-next:after, .slick-prev:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, .5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+.slick-next:focus:not(:active)::after, .slick-prev:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+.slider {
+  background:rgb(20,20,20);
+  width:100%;
+  height:410px;
+
+}
+
+.slide {
+  margin-top:50px;
+}
+
+.first-panel {
+  width:52%;
+  height:450px;
+  margin-left:50px;
+  background-size: cover;
+  transform:translateY(50px);
+  background:rgb(50,50,50);
+
+}
+
+.first-panel img {
+  width:100%;
+  height: auto;
+}
+
+.first-panel-img-container {
+  width:100%;
+  height: 200px;
+  background:red;
+  overflow: hidden;
+}
+
+.first-panel h1 {
+  font-size:30px;
+  color:white;
+  margin: 0;
+  transform: translate(25,25) !important;
+  font-weight: 900;
+  margin-top:50px !important;
+  margin-left: 50px !important;
+}
+
+.first-panel p {
+  font-size:15px;
+  color:white;
+  transform: translate(0,30px) !important;
+  margin: 0;
+  margin-left: 50px !important;
+}
+
+.main-hot-overlay h1 {
+  color:white;
+  font-size:23px;
+  transform: translate(0,0) !important;
+  margin: 0 !important;
+}
+
+.main-hot-container p {
+  color:white;
+}
+
+.main-hot-side-img h1 {
+  color:white;
+  font-size:30px;
+  transform: translate(0,0) !important;
+  margin: 0;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.main-hot-side-img p {
+  font-size:20px;
+  transform: translate(0,50px) !important;
+  margin: 0;
+  margin-left: 50px !important;
+
 }
