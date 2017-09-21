@@ -44,7 +44,6 @@
 //= require plugins/url.min.js
 //= require plugins/video.min.js
 //= require jquery.slick
-
 //= require_tree .
 
 
