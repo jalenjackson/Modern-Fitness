@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
 //= require jquery
 //= require jquery_ujs
 //= require froala_editor.min.js
@@ -52,7 +51,8 @@
 //= require masonry/box-maker
 //= require masonry/jquery.loremimages.min
 //= require isotope/jquery.isotope
-
+//= require articles
 //= require_tree .
+
 
 
