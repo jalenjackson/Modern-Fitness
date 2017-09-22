@@ -1,0 +1,121 @@
+<% content_for :head do %>
+    <meta name="turbolinks-cache-control" content="no-cache">
+<% end %>
+
+<%= render 'partials/nav' %>
+
+
+  <div style="background: url(http://eskipaper.com/images/fitness-wallpaper-hd-1.jpg) center center no-repeat; background-size: cover" class="profile-header">
+    <% if user_signed_in? %>
+      <% if current_user.id != @user.id %>
+          <button class="follow-btn">Follow</button>
+      <% end %>
+      <% if current_user.id == @user.id %>
+          <a href="/users/edit"><button class="follow-btn">Edit Profile</button></a>
+      <% end %>
+    <% end %>
+  </div>
+
+<div class="profile-container">
+  <% if @user.avatar? %>
+    <div style="background: url(<%= @user.avatar.url(:medium) %>) center center no-repeat; background-size:cover;" class="profile-img-container"></div>
+  <% else %>
+      <div style="background: url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) center center no-repeat; background-size:cover;" class="profile-img-container"></div>
+<% end %>
+
+  <h1>Jalen Jackson</h1>
+</div>
+
+<ul class="profile-quick-links">
+  <li><a>Articles</a></li>
+  <li><a>Lorem Ipsum</a></li>
+  <li><a>Lorem Ipsum</a></li>
+</ul>
+
+<!-- Top slider -->
+<% if @user.articles.present? %>
+  <div style="margin-top:40px;" class="slider">
+    <% @user.articles.each do |article| %>
+        <% if article.ispublished? || ( user_signed_in? && article.user.id == current_user.id) %>
+          <div onclick="window.location.href='/articles/<%= article.id %>'" style="position: relative; cursor:pointer;
+              <% if article.cover? %>
+              background:url(<%= article.cover.url(:medium) %>) center center no-repeat;
+              <% else %>
+              background:lightsalmon;
+              <% end %>
+              background-size: cover;" class="slide">
+              <a href="/articles/<%= article.id %>">
+                <div class="hot-product-overlay ">
+                <h1 class="parallax-scroll"><span><%= article.title %></span></h1>
+              </a>
+              <a href="/user/<%= @user.username %>">
+                <h1 class="parallax-scroll"><span>By <%= @user.first_name %> <%= article.created_at.strftime('%B/%d/%Y') %></span></h1>
+                <% if !article.ispublished? && article.user.id == current_user.id %>
+                  <h1 class="parallax-scroll"><span>Not yet published!</span></h1>
+                <% end %>
+              </a>
+            </div>
+          </div>
+        <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="no-articles">
+      <% if user_signed_in? && @user.id == current_user.id  %>
+      <h1>You don't have any articles <i class="fa fa-frown-o" aria-hidden="true"></i></h1>
+      <% else %>
+        <h1><%= @user.first_name %> does not have any articles <i class="fa fa-frown-o" aria-hidden="true"></i></h1>
+      <% end %>
+
+   <img src="http://walljozz.com/images/clipart-robot-gif-16.jpg"/>
+  </div>
+<% end %>
+
+<%= render 'partials/footer' %>
+
+<!-- End Top Slider -->
+
+
+
+<!--- Slick Slider --->
+<script>
+    $('.slider').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        centerMode: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
+
+    $(".slick-next").html(">");
+    $(".slick-prev").html("<");
+
+</script>
+
+<% if user_signed_in? %>
+  <% if @user.id == current_user.id %>
+  <% if !@user.avatar? && !@user.header? %>
+    <script>
+        alertify.success('Update Your Profile Image <i class="fa fa-picture-o"></i>');
+        setTimeout(function(){
+            alertify.success('Update Your Cover Art <i class="fa fa-picture-o"></i>');
+        },500);
+    </script>
+    <% end %>
+
+    <% if !@user.avatar? && @user.header? %>
+        <script>
+            alertify.success('Update Your Profile Image <i class="fa fa-picture-o"></i>');
+        </script>
+    <% end %>
+
+    <% if @user.avatar? && !@user.header? %>
+      <script>
+          alertify.success('Update Your Cover Art <i class="fa fa-picture-o"></i>');
+      </script>
+    <% end %>
+
+  <% end %>
+
+<% end %>

@@ -26,6 +26,9 @@ gem 'aws-sdk'
 
 gem "jquery-slick-rails"
 
+gem 'masonry-rails'
+
+
 
 
 

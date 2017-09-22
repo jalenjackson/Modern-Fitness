@@ -7,6 +7,16 @@ class ApplicationController < ActionController::Base
   # after signing in), which is what the :unless prevents
   before_action :store_current_location, :unless => :devise_controller?
 
+
+  private
+  def sign_up_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
+
+  def account_update_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password)
+  end
+
   private
   # override the devise helper to store the current location so we can
   # redirect to it after loggin in or out. This override makes signing in

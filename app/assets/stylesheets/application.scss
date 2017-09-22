@@ -35,3 +35,136 @@
 @import 'slick';
 
 
+
+
+.sign-up-form-form {
+  display: table;
+  margin-left: 70px ;
+
+  label {
+    position: relative;
+    display: block;
+
+    input {
+      font: 18px Helvetica, Arial, sans-serif;
+      box-sizing: border-box;
+      display: block;
+      border: none;
+      padding: 20px;
+      width: 300px;
+      margin-bottom: 20px;
+      box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
+
+      font-size: 18px;
+      outline: none;
+      transition: all 0.2s ease-in-out;
+
+      &::placeholder {
+        transition: all 0.2s ease-in-out;
+        color: #999;
+        font: 18px Helvetica, Arial, sans-serif;
+      }
+
+      &:focus, &.populated {
+        padding-top: 28px;
+        padding-bottom: 12px;
+
+        &::placeholder {
+          color: transparent;
+        }
+
+        & + span {
+          opacity: 1;
+          top: 10px;
+        }
+      }
+    }
+
+    span {
+      color: orange;
+      font: 13px Helvetica, Arial, sans-serif;
+      position: absolute;
+      top: 0px;
+      left: 20px;
+      opacity: 0;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  input[type="submit"] {
+    transition: all 0.2s ease-in-out;
+    font: 18px Helvetica, Arial, sans-serif;
+    border: none;
+    background: rgb(51,51,51);
+    padding: 16px 40px;
+    text-transform: uppercase;
+    color:white !important;
+    box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
+
+
+    &:hover {
+      background: rgb(31,31,31);
+    }
+  }
+}
+
+input {
+  color:black !important;
+}
+
+.sign-up-img {
+  position: absolute;
+  top:0px;
+  right:0;
+  width:60%;
+  height: 100%;
+  background: url(https://hdwallsource.com/img/2016/4/fitness-girl-wallpaper-51314-53012-hd-wallpapers.jpg) center center no-repeat;
+  background-size:cover;
+}
+
+.sign-up-form {
+  height: 110%;
+  width: 100%;
+  position: relative;
+  background:rgb(41,41,41);
+  margin-top: -30px;
+
+}
+
+.sign-up-img {
+  text-align: center;
+}
+
+.sign-up-img h1 {
+  text-align:center;
+  font-size:60px;
+  font-weight: 900;
+  display: block;
+  margin:0 auto ;
+  transform: translateY(200px);
+}
+
+.sign-in-form {
+  position: relative;
+  height: 100%;
+  margin-top: -30px;
+  background: rgb(51,51,51);
+}
+
+.sign-in-img {
+  position: absolute;
+  top:0px;
+  right:0;
+  width:60%;
+  height: 100%;
+  background: url(https://hdwallsource.com/img/2016/4/fitness-girl-wallpaper-51314-53012-hd-wallpapers.jpg) center center no-repeat;
+  background-size:cover;
+}
+
+.form-text {
+  transform: translateY(50px);
+}
+
+.submit-btn {
+  color:white !important;
+}

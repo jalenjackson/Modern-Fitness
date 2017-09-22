@@ -1,15 +1,22 @@
-<h2>Log in</h2>
+<%= render 'partials/nav' %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+<div class="sign-in-form">
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+<h2 style="margin-left:70px;transform: translateY(50px);margin-bottom:30px;">Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => "sign-up-form-form"}) do |f| %>
+
+<div class="form-text">
+    <label>
+      <%= f.email_field :email, placeholder: "Email" %>
+      <span>Email</span>
+    </label>
+
+    <label>
+      <%= f.email_field :password, placeholder: "Password" %>
+      <span>Password</span>
+    </label>
+
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
@@ -18,9 +25,16 @@
     </div>
   <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+    <label>
+      <%= f.submit "Log In" %>
+    </label>
 
-<%= render "devise/shared/links" %>
+<% end %>
+  </div>
+<div style="background: url(http://eskipaper.com/images/fitness-wallpaper-hd-1.jpg) center center no-repeat; background-size:cover;" class="sign-up-img">
+  <h1>Glad To Have You Back</h1>
+</div>
+
+</div>
+
+<%= render 'partials/footer' %>

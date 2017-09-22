@@ -2,30 +2,25 @@
 
 <div style=" background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= @article.cover.url(:large) %>) center center no-repeat; background-size: cover" class="image-header">
   <h1><%= @article.title %></h1>
-
+  <% if user_signed_in? %>
+      <% if current_user.id == @article.user.id %>
   <a href="/articles/<%= @article.id %>/edit"><button class="go-back">Keep Editing</button></a>
-  <% if current_user.id == @article.user.id %>
        <% if @article.ispublished? == false %>
     <%= link_to publish_article_path(@article), :method => :put do %>
           <button class="publish-btn">Publish Story</button>
        <% end %>
     <% end %>
   <% end %>
+ <% end %>
 </div>
 
 
-<div class="article-submitted">
-  <div class="article-overlay">
-    <h1>Congrats <%= @article.user.email %></h1>
-    <h1>Your Article Was Published!</h1>
-    <i class="fa fa-times fa-times-article"></i>
 
+<% if user_signed_in? %>
+  <div class="article-submission">
+    <h1>Congratulations <%= current_user.first_name %> Your Article Was Published!</h1>
   </div>
-
-  <img src="https://ak8.picdn.net/shutterstock/videos/16682533/thumb/1.jpg"/>
-</div>
-
-
+<% end %>
 
 
 <div style="margin-top:70px;" class="fr-view">
@@ -53,16 +48,15 @@
     })();
 
     $(".publish-btn").click(function(){
+        $(".article-submission").addClass("slide-up");
         $(".publish-btn").fadeOut("slow");
-        $(".article-submitted").css({
-            opacity: "1",
-            pointerEvents: "auto"
-        })
+
+        setTimeout(function(){
+            $(".article-submission").addClass("slide-down");
+        },2500);
     });
 
-    $(".fa-times").click(function(){
-        $(".article-submitted").fadeOut("slow");
-    });
+
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 

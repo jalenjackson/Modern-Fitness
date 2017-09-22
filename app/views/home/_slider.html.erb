@@ -1,46 +1,34 @@
 <!-- Top slider -->
 <div class="slider">
-  <div style="position: relative; background:url(https://static1.squarespace.com/static/553ea53ae4b056ff9cd289fa/553ebf7fe4b04f3f2540a429/553ebffae4b0c0667be567af/1430175747617/Leryn-Franco-Fitness-Girl-HD-Wallpaper.jpg?format=1500w) center center no-repeat; background-size: cover;" class="slide">
-    <div class="hot-product-overlay ">
-      <h1 class="parallax-scroll"><span>Lorem Ipsum</span></h1>
-      <h1 class="parallax-scroll"><span>lorem ipsum is simply dummy text</span></h1>
-    </div>
+  <% if @articles.present? %>
+    <% @articles.each do |article| %>
+
+
+        <div style="position: relative;
+
+            <% if article.cover? %>
+            background:url(<%= article.cover.url(:medium) %>) center center no-repeat;
+            <% else %>
+            background: lightsalmon;
+            <% end %>
+
+            background-size: cover;" class="slide">
+
+          <a href="/articles/<%= article.id %>">
+        <div class="hot-product-overlay ">
+            <h1 class="parallax-scroll"><span><%= article.title %></span></h1>
+          </a>
+          <a href="/user/<%= article.user.username %>">
+            <h1 class="parallax-scroll"><span>By <%= article.user.first_name %> <%= article.created_at.strftime('%B/%d/%Y') %></span></h1>
+          </a>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+
   </div>
-  <div style="position: relative; background:url(https://ak9.picdn.net/shutterstock/videos/10423340/thumb/1.jpg) center center no-repeat; background-size: cover;" class="slide">
-    <div class="hot-product-overlay ">
-      <h1 class="parallax-scroll"><span>Lorem Ipsum</span></h1>
-      <h1 class="parallax-scroll"><span>lorem ipsum is simply dummy text</span></h1>
-    </div>
-  </div>
-  <div style="position: relative; background:url(http://geodavephotography.com/images/running-wallpaper/37606546-running-wallpaper.jpg) center center no-repeat; background-size: cover;" class="slide">
-    <div class="hot-product-overlay ">
-      <h1 class="parallax-scroll"><span>Lorem Ipsum</span></h1>
-      <h1 class="parallax-scroll"><span>lorem ipsum is simply dummy text</span></h1>
-    </div>
-  </div>
-  <div style="position: relative; background:url(https://hdwallsource.com/img/2016/4/fitness-man-wallpaper-51312-53010-hd-wallpapers.jpg) center center no-repeat; background-size: cover;" class="slide">
-    <div class="hot-product-overlay ">
-      <h1 class="parallax-scroll"><span>Lorem Ipsum</span></h1>
-      <h1 class="parallax-scroll"><span>lorem ipsum is simply dummy text</span></h1>
-    </div>
-  </div>
-  <div style="position: relative; background:url(https://draxe.com/wp-content/uploads/2015/11/Almond-Joy-Protein-Shake.jpg) center center no-repeat; background-size: cover;" class="slide">
-    <div class="hot-product-overlay ">
-      <h1 class="parallax-scroll"><span>Lorem Ipsum</span></h1>
-      <h1 class="parallax-scroll"><span>lorem ipsum is simply dummy text</span></h1>
-    </div>
-  </div>
-  <div style="position: relative; background:url(http://www.wallpapersbyte.com/wp-content/uploads/2016/01/The-Rock-Dwayne-Johnson-Actor-Fitness-Athlete-Gym-Exercise-WallpapersByte-com-1920x1080.jpg) center center no-repeat; background-size: cover;" class="slide">
-    <div class="hot-product-overlay ">
-      <h1 class="parallax-scroll"><span>Lorem Ipsum</span></h1>
-      <h1 class="parallax-scroll"><span>lorem ipsum is simply dummy text</span></h1>
-    </div>
-  </div>
-  <div style="position: relative; background:url(https://images.designtrends.com/wp-content/uploads/2015/12/22053715/Bassketball-Terrance-Hall-Background.jpg) center center no-repeat; background-size: cover;" class="slide">
-    <div class="hot-product-overlay ">
-      <h1 class="parallax-scroll"><span>Lorem Ipsum</span></h1>
-      <h1 class="parallax-scroll"><span>lorem ipsum is simply dummy text</span></h1>
-    </div>
-  </div>
-</div>
-<!-- End Top Slider -->
+
+  <a href="/articles"><p style="text-align: center;">See All Articles <i class="fa fa-arrow-right"></i></p></a>
+
+  <!-- End Top Slider -->
