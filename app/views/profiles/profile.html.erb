@@ -70,7 +70,7 @@
 <% else %>
   <div class="no-articles">
       <% if user_signed_in? && @user.id == current_user.id  %>
-      <h1>You don't have any articles <i class="fa fa-frown-o" aria-hidden="true"></i></h1>
+      <h1 style="color:white;">You don't have any articles <i class="fa fa-frown-o" aria-hidden="true"></i></h1>
       <% else %>
         <h1><%= @user.first_name %> does not have any articles <i class="fa fa-frown-o" aria-hidden="true"></i></h1>
       <% end %>
