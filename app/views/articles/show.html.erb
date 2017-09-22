@@ -1,5 +1,18 @@
 <%= render 'partials/nav' %>
 
+<style>
+  body {
+    background:white;
+  }
+
+    .main-navbar a {
+      color:black;
+    }
+
+    .logo {
+      filter: invert(100%);
+    }
+</style>
 <div style=" background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= @article.cover.url(:large) %>) center center no-repeat; background-size: cover" class="image-header">
   <h1><%= @article.title %></h1>
   <% if user_signed_in? %>
@@ -18,12 +31,12 @@
 
 <% if user_signed_in? %>
   <div class="article-submission">
-    <h1>Congratulations <%= current_user.first_name %> Your Article Was Published!</h1>
+    <h1 style="color:white;">Congratulations <%= current_user.first_name %> Your Article Was Published!</h1>
   </div>
 <% end %>
 
 
-<div style="margin-top:70px; color:white; margin-left:50px;margin-right: 50px;" class="fr-view">
+<div style="margin-top:70px;  margin-left:50px;margin-right: 50px;" class="fr-view">
   <%= raw @article.body %>
 </div>
 
