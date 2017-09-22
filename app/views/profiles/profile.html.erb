@@ -5,7 +5,15 @@
 <%= render 'partials/nav' %>
 
 
-  <div style="background: url(<%= @user.header.url(:medium) %>) center center no-repeat; background-size: 100% auto" class="profile-header">
+  <div style="
+
+      <% if @user.header? %>
+  background: url(<%= @user.header.url(:medium) %>) center center no-repeat;
+          <% else %>
+          background: url(http://www.barbaraparisi.com/x/images/1000x300/l1010523_2_1000x300.jpg) center center no-repeat;
+          <% end %>
+
+      background-size: 100% auto" class="profile-header">
     <% if user_signed_in? %>
       <% if current_user.id != @user.id %>
           <button class="follow-btn">Follow</button>
