@@ -7,11 +7,11 @@
 body, html{
   width:100%;
   height:100%;
-  background:rgb(31,31,31);
+  background:rgb(240,240,240);
   margin:0;
   padding:0;
   overflow-x: hidden;
-  font-family: 'Josefin Sans', sans-serif !important;
+  font-family: 'Helvetica Neue', sans-serif !important;
 }
 
 
@@ -24,16 +24,22 @@ a{
   outline: none;
 }
 
+.nav-items {
+  margin-top:12px;
+}
+
+
 
 .main-navbar {
   width:100%;
-  height:150px;
+  height:40px;
   position: relative;
   top:0;
-  left:0;
+  text-align: center;
+  left:0px;
   overflow: hidden;
   z-index:99;
-
+  background: #3f484f;
 }
 
 .logo {
@@ -53,16 +59,57 @@ a{
 
 .main-navbar a {
   color: white;
-  font-size:13px;
+  font-size:12px;
   text-transform: uppercase;
   letter-spacing:2px;
-  font-weight:500;
   margin-left:15px;
+  text-align: center;
+  padding-left:30px;
+  font-weight: 900;
+  padding-right: 30px;
   cursor: pointer;
-  height:50px;
-  font-family: 'Josefin Sans', sans-serif !important;
+  font-family: 'Open Sans', sans-serif !important;
+  position: relative;
 
 }
+
+.main-navbar a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top:-15px;
+  width:2px;
+  height: 40px;
+  background:rgba(255,255,255,0.2);
+}
+
+.main-navbar a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  top:-15px;
+  width:2px;
+  height: 40px;
+  background:rgba(255,255,255,0.2);
+}
+
+.grid__item {
+  background:white !important;
+  border-radius: .3em !important;
+}
+
+.grid__item h1 {
+  color:rgb(81,81,81) !important;
+}
+
+.article-owner {
+  font-weight: 400 !important;
+  font-size:17px;
+}
+
+
 
 
 
@@ -117,13 +164,6 @@ a{
   margin-left:15px;
 }
 
-.bottom-footer{
-  background:rgb(15,15,15);
-  width:100%;
-  height:400px;
-  margin-top:30px;
-}
-
 .fa-bars{
   position: absolute;
   left:0;
@@ -151,7 +191,7 @@ a{
 .bottom-footer h1 {
   text-align:center;
   font-size:25px;
-  color:white;
+  color:rgb(81,81,81);
   margin-top:50px;
   transform:translateY(50px);
   font-family: Helvetica, Sans-Serif;
@@ -200,24 +240,24 @@ a{
 }
 
 .slide {
-  height: 300px;
-  width:150px;
-  background:white;
-  margin-left: 30px;
+  height: 140px !important;
+  width:180px;
+  background:white !important;
+  margin-left: 36px;
 }
 
 .slick-next {
   position: absolute;
   right: 15px;
-  top:160px;
-  width:65px;
-  height:65px;
+  top:100px;
+  width:45px;
+  height:45px;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.55);
   background:white;
   border-radius: 100%;
   border:none;
   color: grey;
-  font-size:30px;
+  font-size:20px;
   cursor: pointer;
 
 }
@@ -225,15 +265,15 @@ a{
 .slick-prev {
   position: absolute;
   left: 15px;
-  top:160px;
-  width:65px;
-  height:65px;
+  top:100px;
+  width:45px;
+  height:45px;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.55);
   background:white;
   border-radius: 100%;
   border:none;
   color: grey;
-  font-size:30px;
+  font-size:20px;
   cursor: pointer;
   z-index: 9999999999999;
 }
@@ -275,14 +315,17 @@ button:focus:not(:active)::after {
 
 
 .slider {
-  background:rgb(20,20,20);
+  background:white;
   width:100%;
-  height:410px;
+  height:260px;
+
 
 }
 
 .slide {
   margin-top:50px;
+  height: 300px;
+  background:rgb(240,240,240) !important;
 }
 
 .content {
@@ -311,3 +354,89 @@ a:hover
   color:orange;
 }
 
+.nav-items a {
+  transform: translateY(-3px)!important;
+  font-size:12px !important;
+}
+
+.header-image {
+  background: url(http://moheban-ahlebeit.com/images/Wallpaper-Fitness/Wallpaper-Fitness-8.jpg) center center no-repeat;
+  background-size:cover;
+}
+
+.right-header-container {
+  float:right;
+  margin-right: 50px;
+  margin-top:20px;
+}
+
+.right-header-container a {
+  color:white !important;
+  font-size:13px;
+  text-transform: uppercase;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: 400;
+}
+
+.fa-search {
+  color:white !important;
+  cursor: pointer;
+}
+
+.left-header-container img {
+  width:30px;
+  height: 30px;
+  display: inline-block;
+  filter: invert(100%);
+}
+
+.left-header-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.deals {
+  text-align:center;
+  position: absolute;
+  width: 100%;
+  top: 130px;
+}
+
+.header-image h1 {
+  font-size:40px !important;
+  text-align:center !important;
+  color:white;
+  display: block;
+  margin: 0 auto;
+}
+
+.start-selling-today {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://soulscape.asia/wp-content/uploads/2016/01/Enjoying-Family-HD-Wallpapers-Free.jpg) center center no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+.start-selling-today h1 {
+  color:white;
+  font-size:40px;
+
+}
+
+.start-selling-today button {
+  width: 250px;
+  height: 50px;
+  border-radius: .3em;
+  background: #3f484f;
+  color:white;
+  text-transform: uppercase;
+  border:none;
+  margin-top: 50px;
+}
+
+.start-selling-text {
+  transform: translateY(120px);
+}

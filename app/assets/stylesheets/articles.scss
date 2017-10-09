@@ -15,8 +15,8 @@
   border: none;
   box-sizing: border-box;
   display: block;
-  font-family: Roboto, Arial, sans-serif;
   font-size:40px;
+  font-family: 'Helvetica Neue', sans-serif !important;
   width: 100%;
   font-weight: 900 !important;
   color:white !important; ;
@@ -38,7 +38,8 @@
   pointer-events: none;
   position: relative;
   text-transform: uppercase;
-  font-family: 'Josefin Sans', sans-serif !important;
+  font-family: 'Helvetica Neue', sans-serif !important;
+
   color:white;
 
   width: 100%;
@@ -51,7 +52,8 @@
   transition: all 0.2s ease;
   will-change: font-size, top;
   font-weight: 900 !important;
-  font-family: 'Josefin Sans', sans-serif !important;
+  font-family: 'Helvetica Neue', sans-serif !important;
+
   color:white;
 
 
@@ -115,7 +117,8 @@
   text-align: center;
   margin-top:200px;
   position: absolute;
-  font-family: 'Josefin Sans', sans-serif !important;
+  font-family: 'Helvetica Neue', sans-serif !important;
+
 }
 
 .filefield {
@@ -182,8 +185,9 @@
 .new-article-page {
   height: 100%;
   width: 100%;
-  background:url(https://assets.awwwards.com/awards/sites_of_the_day/2017/09/Heartbeat-Agency-cover.jpg) center center no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://previews.123rf.com/images/luckybusiness/luckybusiness1507/luckybusiness150700019/42200188-jumping-at-the-beach-summer-holidays-vacation-happy-people-concept-Stock-Photo.jpg) center center no-repeat;
   background-size: cover;
+  position: relative;
 }
 
 
@@ -324,7 +328,8 @@
   text-align:center;
   transform: translateY(100px);
   font-weight: 100;
-  font-family: Helvetica, Sans-Serif !important;
+  font-family: 'Helvetica Neue', sans-serif !important;
+
 
 }
 

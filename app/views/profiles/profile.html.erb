@@ -2,7 +2,7 @@
     <meta name="turbolinks-cache-control" content="no-cache">
 <% end %>
 
-<%= render 'partials/nav' %>
+<%= render 'partials/nav2' %>
 
 
   <div style="
@@ -13,7 +13,7 @@
           background: url(http://www.barbaraparisi.com/x/images/1000x300/l1010523_2_1000x300.jpg) center center no-repeat;
           <% end %>
 
-      background-size: 100% auto" class="profile-header">
+      background-size: 100% auto; margin-top: -12px!important;" class="profile-header">
     <% if user_signed_in? %>
       <% if current_user.id != @user.id %>
           <button class="follow-btn">Follow</button>
@@ -31,14 +31,8 @@
       <div style="background: url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) center center no-repeat; background-size:cover;" class="profile-img-container"></div>
 <% end %>
 
-  <h1 style="color:white;"><%= @user.first_name %> <%= @user.last_name %></h1>
+  <h1 style="color:rgb(81,81,81);"><%= @user.first_name %> <%= @user.last_name %></h1>
 </div>
-
-<ul class="profile-quick-links">
-  <li><a>Articles</a></li>
-  <li><a>Lorem Ipsum</a></li>
-  <li><a>Lorem Ipsum</a></li>
-</ul>
 
 <!-- Top slider -->
 <% if @user.articles.present? %>
@@ -70,12 +64,11 @@
 <% else %>
   <div class="no-articles">
       <% if user_signed_in? && @user.id == current_user.id  %>
-      <h1 style="color:white;">You don't have any articles <i class="fa fa-frown-o" aria-hidden="true"></i></h1>
+      <h1 style="color:rgb(81,81,81);">You don't have any articles <i class="fa fa-frown-o" aria-hidden="true"></i></h1>
       <% else %>
         <h1><%= @user.first_name %> does not have any articles <i class="fa fa-frown-o" aria-hidden="true"></i></h1>
       <% end %>
 
-   <img src="http://walljozz.com/images/clipart-robot-gif-16.jpg"/>
   </div>
 <% end %>
 

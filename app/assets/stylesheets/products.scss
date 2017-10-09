@@ -1,0 +1,257 @@
+body,html {
+  font-family: 'Helvetica Neue', sans-serif !important;
+
+}
+
+
+.product-container {
+  width: 100%;
+  height: 100%;
+}
+
+.product-header {
+  width: 100%;
+  height: 500px;
+  background:red;
+}
+
+.navbar2 {
+  width: 100%;
+  height: 40px;
+  background: #3f484f;
+  overflow: hidden;
+  position: relative;
+}
+
+.navbar2 a {
+  color:white;
+  font-size:12px;
+  display: inline-block;
+}
+
+.left-nav2-container {
+  position: absolute;
+  left: 0;
+  top:10px;
+}
+.left-nav2-container a {
+  display: inline-block;
+  font-size:14px;
+  margin-left: 20px;
+}
+
+.right-nav2-container a {
+  margin-left: 30px;
+  font-size: 14px;
+}
+
+a:hover {
+  color:rgb(81,81,81) !important;
+}
+
+.right-nav2-container {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+.right-nav2-container {
+  margin-right: 50px !important;
+}
+
+.nav2-name {
+  position: relative;
+}
+
+.nav2-name::after {
+  content: "";
+  display: block;
+  right: -13px;
+  top: -10px;
+  position: absolute;
+  background:rgba(255,255,255,0.2);
+  width:2px;
+  height: 42px;
+  z-index: 999999999999999;
+}
+
+
+.product-header {
+  position: relative;
+  background: linear-gradient(rgba(63,72,79,0.5), rgba(63,72,79,0.7) ), url(http://i.huffpost.com/gen/3971736/images/o-HAPPY-PEOPLE-facebook.jpg) center center no-repeat;
+  background-size:cover;
+}
+
+.product-text-container {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.product-text-container h1 {
+  font-size: 35px;
+  color:white;
+  text-align: center;
+}
+
+.product-text-container p {
+  color:white;
+  font-size:17px;
+}
+
+.product-text-container button {
+  width: 250px;
+  height: 50px;
+  border-radius: 1em;
+  background: #569eca;
+  border:none;
+  color:white;
+  font-size:17px;
+  letter-spacing: .3px;
+  margin-top: 50px;
+  position: relative;
+}
+
+.why-products h1 {
+  text-align:center;
+  font-size:25px;
+}
+
+
+/* STRUCTURE */
+
+#pagewrap {
+  padding: 5px;
+  width: 960px;
+  margin: 20px auto;
+}
+header {
+  height: 100px;
+  padding: 0 15px;
+}
+#content {
+  width: 290px;
+  float: left;
+  padding: 5px 15px;
+}
+
+#middle {
+  width: 294px; /* Account for margins + border values */
+  float: left;
+  padding: 5px 15px;
+  margin: 0px 5px 5px 5px;
+}
+
+#sidebar {
+  width: 270px;
+  padding: 5px 15px;
+  float: left;
+}
+footer {
+  clear: both;
+  padding: 0 15px;
+}
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/* for 980px or less */
+@media screen and (max-width: 980px) {
+
+  #pagewrap {
+    width: 94%;
+  }
+  #content {
+    width: 41%;
+    padding: 1% 4%;
+  }
+  #middle {
+    width: 41%;
+    padding: 1% 4%;
+    margin: 0px 0px 5px 5px;
+    float: right;
+  }
+
+  #sidebar {
+    clear: both;
+    padding: 1% 4%;
+    width: auto;
+    float: none;
+  }
+
+  header, footer {
+    padding: 1% 4%;
+  }
+}
+
+/* for 700px or less */
+@media screen and (max-width: 600px) {
+
+  #content {
+    width: auto;
+    float: none;
+  }
+
+  #middle {
+    width: auto;
+    float: none;
+    margin-left: 0px;
+  }
+
+  #sidebar {
+    width: auto;
+    float: none;
+  }
+
+}
+
+/* for 480px or less */
+@media screen and (max-width: 480px) {
+
+  header {
+    height: auto;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  #sidebar {
+    display: none;
+  }
+
+}
+
+
+header, #content, #middle, #sidebar {
+  margin-bottom: 5px;
+}
+
+
+
+#pagewrap section img, #sidebar img {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+}
+
+.products-message {
+  width: 100%;
+  position: relative;
+  height: 100px;
+  background: #3f484f;
+  margin-bottom: -40px !important;
+}
+
+.products-message button {
+  width: 200px;
+  height: 50px;
+  border-radius: .3em;
+  background: white;
+  color:rgb(81,81,81);
+  text-transform: uppercase;
+  display: block;
+  margin: 0 auto;
+  transform: translateY(25px);
+  border:none;
+}

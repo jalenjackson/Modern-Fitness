@@ -33,6 +33,7 @@
 @import 'plugins/table.min.css';
 @import 'plugins/video.min.css';
 @import 'slick';
+@import 'products';
 
 
 
@@ -166,5 +167,9 @@ input {
 }
 
 .submit-btn {
+  color:white !important;
+}
+
+a:hover {
   color:white !important;
 }

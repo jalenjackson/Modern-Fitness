@@ -1,0 +1,14 @@
+<%= simple_form_for(@product) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.text_field :title, placeholder: "title" %>
+    <%= f.text_area :description, placeholder: "Description" %>
+    <%= f.file_field :cover, placeholder: "cover image" %>
+    <%= f.text_field :price, placeholder: "price" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
