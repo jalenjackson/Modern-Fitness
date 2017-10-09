@@ -7,9 +7,9 @@
         <div style="position: relative;
 
             <% if article.cover? %>
-            background:url(<%= article.cover.url(:medium) %>) center center no-repeat;
+            background:url(<%= article.cover.url(:medium) %>) center center no-repeat !important;
             <% else %>
-            background: lightsalmon;
+            background: lightgrey !important;
             <% end %>
 
             background-size: cover;" class="slide">
