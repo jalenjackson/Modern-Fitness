@@ -1,9 +1,9 @@
-<%= render 'partials/nav' %>
+<%= render 'partials/nav2' %>
 
 <div class="opac-inside" style="text-align: center">
 
   <div class="dropdown-h1">
-    <h1 class="article-message">Write Your Article</h1>
+    <h1 style="color:grey !important;" class="article-message">Write Your Article</h1>
   </div>
 
 <%= form_with(model: @article, local: true) do |form| %>
@@ -21,7 +21,7 @@
 
 
     <div>
-          <p style="color:white;">Article title</p>
+          <p style="color:grey;">Article title</p>
           <%= form.text_field :title , :required => true , class: "article-title-box"%>
     </div>
 
