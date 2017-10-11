@@ -94,12 +94,18 @@
   }
 
   .grid__item {
-    background:rgb(240,240,240) !important;
+    background:rgb(245,245,245) !important;
+    border-radius: .4em !important;
   }
   .grid__item h1 {
     font-weight: 200 !important;
     color:black !important;
     letter-spacing:.5px;
+  }
+
+  .article-img-container {
+    width: 100%;
+    height: 190px;
   }
   /* loader ellips in separate pen CSS */
 
@@ -116,7 +122,7 @@
   <% @articles.each do |article| %>
       <div class="grid__item grid__item--height3">
         <a href="/articles/<%= article.id %>">
-          <img src="<%= article.cover.url(:medium) %>"/>
+          <div style="background:url(<%= article.cover.url(:medium) %>) center center no-repeat; background-size:cover;" class="article-img-container"></div>
         </a>
         <% if !article.cover? %>
             <a href="/articles/<%= article.id %>">
