@@ -1,30 +1,19 @@
 <!-- Top slider -->
 <div class="slider">
-  <% if @articles.present? %>
-    <% @articles.each do |article| %>
 
 
-        <div style="position: relative;
 
-            <% if article.cover? %>
-            background:url(<%= article.cover.url(:medium) %>) center center no-repeat !important;
-            <% else %>
-            background: lightgrey !important;
-            <% end %>
+  <% 10.times do |h| %>
+        <div style="position: relative; background: lightgrey !important;background-size: cover;" class="slide">
 
-            background-size: cover;" class="slide">
-
-          <a href="/articles/<%= article.id %>">
         <div class="hot-product-overlay ">
-            <h1 class="parallax-scroll"><span><%= article.title %></span></h1>
-          </a>
-          <a href="/user/<%= article.user.username %>">
-            <h1 class="parallax-scroll"><span>By <%= article.user.first_name %> <%= article.created_at.strftime('%B/%d/%Y') %></span></h1>
-          </a>
+            <h1 class="parallax-scroll"><span>Title</span></h1>
+            <h1 class="parallax-scroll"><span>Name & Date</span></h1>
         </div>
       </div>
-    <% end %>
-  <% end %>
+
+      <% end %>
+
 
 
   </div>

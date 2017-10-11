@@ -1,0 +1,112 @@
+.side-bar {
+  position:fixed;
+  top:40px;
+  width:260px;
+  background:white;
+  height: 100%;
+}
+
+.main-content {
+  margin-left: 260px;
+  width: calc(100% - 250px);
+  height: auto;
+  margin-top: 0px;
+  overflow-y:hidden;
+  position: relative;
+}
+
+.main-content-text {
+  position: absolute;
+}
+
+.main-header {
+  background: url(https://img2.g-star.com/image/upload/f_auto/v1504599178/17-2/elwood/homepage/new/05_HOMEPAGE_L_phase1_des.jpg) center center no-repeat;
+  background-size:cover;
+  width: 100%;
+  height: 440px;
+  overflow-y:hidden;
+
+  overflow: hidden;
+}
+
+.main-header2 {
+  background: url(https://img2.g-star.com/image/upload/f_auto/17-2/eyewear/homepage/HOMEPAGE_Desktop.jpg) center center no-repeat;
+  overflow: hidden;
+  overflow-y:hidden;
+  background-size: 100% 100% !important;
+
+}
+
+.specials {
+  width: 100%;
+  height: 50px;
+  background:white;
+  position: relative;
+}
+
+.specials h1 {
+  text-align:center;
+  font-size:13px;
+  position: absolute;
+  left: 0;
+  top:0;
+  right: 0;
+  bottom: 0;
+}
+
+.main-header3 {
+  position: relative;
+  background:white;
+}
+
+.main-header h1 {
+  text-align:center;
+  font-size:350px;
+  position: absolute;
+  left: 0;
+  top:0px;
+  right: 0;
+  font-weight: bold;
+  bottom: 0;
+  -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(transparent, transparent),
+  url(https://img2.g-star.com/image/upload/f_auto/v1504599178/17-2/elwood/homepage/new/05_HOMEPAGE_L_phase1_des.jpg) repeat;
+  background: -o-linear-gradient(transparent, transparent);
+  -webkit-background-clip: text;
+
+
+}
+
+.all-products {
+  width: 100%;
+  height: 100%;
+  background: rgb(240,240,240);
+}
+
+.all-products h1 {
+  text-align:center;
+  font-size:25px;
+  padding-bottom: 26px;
+  margin-top: 13px;
+  font-weight: 100;
+  transform: translateY(10px);
+}
+.col-sm-5 {
+  background: white;
+  position: relative;
+  height: 400px;
+  margin-left: 50px;
+  padding: 0 !important;
+  margin-top: 20px;
+}
+
+.col-sm-5 p {
+  text-align:center;
+}
+
+
+.image-container {
+  width: 100%;
+  height: 300px;
+  margin: 0 !important;
+}

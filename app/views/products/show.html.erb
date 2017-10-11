@@ -1,4 +1,25 @@
-<p id="notice"><%= notice %></p>
+<%= render 'partials/nav2' %>
+<%= render 'sidebar' %>
+
+
+<p><%= @product.title %></p>
+<p><%= @product.description %></p>
+<p><%= @product.price %></p>
+
+
+<% @product.galleries.each do |g| %>
+  <img src="<%= g.cover.url(:medium) %>" />
+<% end %>
+
+<%= form_for [@product, Gallery.new] do |f| %>
+
+    <%= f.file_field :cover %>
+    <%= f.button :submit %>
+
+
+<% end %>
+
+
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

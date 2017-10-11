@@ -367,11 +367,16 @@ a:hover
 .nav-items a {
   transform: translateY(-3px)!important;
   font-size:12px !important;
+  font-weight: 100;
 }
 
+
+
 .header-image {
-  background: url(https://i.pinimg.com/originals/47/8c/59/478c590348482b2e100de080b2050bee.jpg) center center no-repeat;
-  background-size:cover;
+  background: url(../fitness.jpg) center center no-repeat;
+  background-size:100% auto;
+  background-position: 0 -50px;
+
 }
 
 .right-header-container {
@@ -424,15 +429,17 @@ a:hover
 
 .start-selling-today {
   width: 100%;
-  height: 400px;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://soulscape.asia/wp-content/uploads/2016/01/Enjoying-Family-HD-Wallpapers-Free.jpg) center center no-repeat;
+  height: 460px;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../money.jpg) center center no-repeat;
   background-size: cover;
   text-align: center;
+  background-position: 0 0px;
 }
 
 .start-selling-today h1 {
   color:white;
   font-size:40px;
+  font-weight: 100;
 
 }
 
@@ -440,11 +447,13 @@ a:hover
   width: 250px;
   height: 50px;
   border-radius: .3em;
-  background: #3f484f;
   color:white;
   text-transform: uppercase;
   border:none;
   margin-top: 50px;
+  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.4);
+  background: rgb(51,51,51);
+
 }
 
 .start-selling-text {

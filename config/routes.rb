@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :products
+
+  resources :products do
+    resources :galleries
+  end
+
   resources :articles do
     member do
       put :publish

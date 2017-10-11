@@ -1,8 +1,43 @@
 <%= render 'partials/nav2' %>
 
-<%= @products.each do |product| %>
+<%= render 'sidebar' %>
 
-    <%= product.title %>
-    <%= product.description %>
 
-<% end %>
+<div class="main-content">
+
+
+  <div class="specials">
+    <h1>Lorem Ipsum is simply dummy text</h1>
+  </div>
+  <div class="main-header"></div>
+  <div class="main-header main-header2"></div>
+  <div class="main-header main-header3">
+    <h1>NEW</h1>
+  </div>
+
+  <div class="all-products">
+    <h1>Latest Products</h1>
+
+    <div class="row">
+      <% @products.each do |product| %>
+
+              <div style="cursor: pointer;" onclick="window.location.href='/products/<%= product.id %>'" class="col-sm-5">
+
+                <div style="background:  url( <%= product.galleries.first.cover.url(:medium) %>) center center no-repeat; background-size:cover;" class="image-container">
+                </div>
+                <h1><%= product.title %></h1>
+                <p style="transform: translateY(-20px)">$<%= product.price %></p>
+              </div>
+
+      <% end %>
+    </div>
+
+
+  </div>
+
+
+
+
+</div>
+
+<%= render 'partials/footer' %>

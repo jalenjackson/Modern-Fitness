@@ -1,6 +1,6 @@
 body,html {
   font-family: 'Helvetica Neue', sans-serif !important;
-
+  background:white !important;
 }
 
 
@@ -20,7 +20,10 @@ body,html {
   height: 40px;
   background: #3f484f;
   overflow: hidden;
-  position: relative;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 999999999999999999999999999999 !important;
 }
 
 .navbar2 a {
@@ -78,7 +81,7 @@ a:hover {
 
 .product-header {
   position: relative;
-  background: linear-gradient(rgba(63,72,79,0.5), rgba(63,72,79,0.7) ), url(http://i.huffpost.com/gen/3971736/images/o-HAPPY-PEOPLE-facebook.jpg) center center no-repeat;
+  background: url(https://stripe.com/img/blog/posts/connect-frontend/header-background.png) center center no-repeat;
   background-size:cover;
 }
 
@@ -91,26 +94,30 @@ a:hover {
 
 .product-text-container h1 {
   font-size: 35px;
-  color:white;
+  color:#3f484f;
+  font-weight: 300;
+  margin-top:50px;
   text-align: center;
 }
 
 .product-text-container p {
-  color:white;
+  color:#3f484f;
   font-size:17px;
 }
 
 .product-text-container button {
-  width: 250px;
-  height: 50px;
-  border-radius: 1em;
-  background: #569eca;
+  width: 180px;
+  height: 40px;
+  border-radius: .3em;
+  background: #47ce90;
   border:none;
   color:white;
-  font-size:17px;
+  font-size:15px;
+  text-transform: uppercase;
   letter-spacing: .3px;
   margin-top: 50px;
   position: relative;
+  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.4);
 }
 
 .why-products h1 {
@@ -244,14 +251,16 @@ header, #content, #middle, #sidebar {
 }
 
 .products-message button {
-  width: 200px;
-  height: 50px;
+  width: 150px;
+  height: 40px;
   border-radius: .3em;
   background: white;
-  color:rgb(81,81,81);
   text-transform: uppercase;
   display: block;
   margin: 0 auto;
   transform: translateY(25px);
   border:none;
+  color:#94adf7;
+  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.4);
+
 }
