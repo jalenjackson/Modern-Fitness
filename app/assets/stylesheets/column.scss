@@ -1,0 +1,37 @@
+.six-columns {
+  background:rgb(240,240,240);
+  width: 100%;
+  height: 230px;
+
+  text-align: center;
+}
+
+.all-forumns {
+  text-align:center !important;
+  font-size:16px;
+  margin-top:50px;
+  display: block;
+  margin: 0 auto;
+  transform: translateY(-36px);
+  color:black;
+  cursor: pointer;
+}
+
+.columns6 {
+  width: 190px;
+  height: 150px;
+  background:white;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+
+.center-content {
+  display: block;
+  margin: 0 auto;
+  width: 95%;
+  white-space:nowrap;
+  transform:translateY(26px);
+  margin-left: 13px;
+
+}

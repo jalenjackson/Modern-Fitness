@@ -1,0 +1,529 @@
+
+
+
+<style>
+  div [class*="col-"] {
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+    background: rgb(240,240,240);
+    border: 3px solid #fff;
+    border-radius: .3em;
+    color: #000;
+  }
+
+  .col-xs-5th-1, .col-xs-5th-2, .col-xs-5th-3, .col-xs-5th-4 {
+    float: left;
+  }
+
+  .col-xs-5th-5 {
+    float: left;
+    width: 100%;
+  }
+
+  .col-xs-5th-4 {
+    width: 80%;
+  }
+
+  .col-xs-5th-3 {
+    width: 60%;
+  }
+
+  .col-xs-5th-2 {
+    width: 40%;
+  }
+
+  .col-xs-5th-1 {
+    width: 20%;
+  }
+
+  .col-xs-5th-pull-5 {
+    right: 100%;
+  }
+
+  .col-xs-5th-pull-4 {
+    right: 80%;
+  }
+
+  .col-xs-5th-pull-3 {
+    right: 60%;
+  }
+
+  .col-xs-5th-pull-2 {
+    right: 40%;
+  }
+
+  .col-xs-5th-pull-1 {
+    right: 20%;
+  }
+
+  .col-xs-5th-pull-0 {
+    right: auto;
+  }
+
+  .col-xs-5th-push-5 {
+    left: 100%;
+  }
+
+  .col-xs-5th-push-4 {
+    left: 80%;
+  }
+
+  .col-xs-5th-push-3 {
+    left: 60%;
+  }
+
+  .col-xs-5th-push-2 {
+    left: 40%;
+  }
+
+  .col-xs-5th-push-1 {
+    left: 20%;
+  }
+
+  .col-xs-5th-push-0 {
+    left: auto;
+  }
+
+  .col-xs-5th-offset-5 {
+    margin-left: 100%;
+  }
+
+  .col-xs-5th-offset-4 {
+    margin-left: 80%;
+  }
+
+  .col-xs-5th-offset-3 {
+    margin-left: 60%;
+  }
+
+  .col-xs-5th-offset-2 {
+    margin-left: 40%;
+  }
+
+  .col-xs-5th-offset-1 {
+    margin-left: 20%;
+  }
+
+  .col-xs-5th-offset-0 {
+    margin-left: 0%;
+  }
+
+  @media (min-width: 768px) {
+    .col-sm-5th-1, .col-sm-5th-2, .col-sm-5th-3, .col-sm-5th-4 {
+      float: left;
+    }
+
+    .col-sm-5th-5 {
+      float: left;
+      width: 100%;
+    }
+
+    .col-sm-5th-4 {
+      width: 80%;
+    }
+
+    .col-sm-5th-3 {
+      width: 60%;
+    }
+
+    .col-sm-5th-2 {
+      width: 40%;
+    }
+
+    .col-sm-5th-1 {
+      width: 20%;
+    }
+
+    .col-sm-5th-pull-5 {
+      right: 100%;
+    }
+
+    .col-sm-5th-pull-4 {
+      right: 80%;
+    }
+
+    .col-sm-5th-pull-3 {
+      right: 60%;
+    }
+
+    .col-sm-5th-pull-2 {
+      right: 40%;
+    }
+
+    .col-sm-5th-pull-1 {
+      right: 20%;
+    }
+
+    .col-sm-5th-pull-0 {
+      right: auto;
+    }
+
+    .col-sm-5th-push-5 {
+      left: 100%;
+    }
+
+    .col-sm-5th-push-4 {
+      left: 80%;
+    }
+
+    .col-sm-5th-push-3 {
+      left: 60%;
+    }
+
+    .col-sm-5th-push-2 {
+      left: 40%;
+    }
+
+    .col-sm-5th-push-1 {
+      left: 20%;
+    }
+
+    .col-sm-5th-push-0 {
+      left: auto;
+    }
+
+    .col-sm-5th-offset-5 {
+      margin-left: 100%;
+    }
+
+    .col-sm-5th-offset-4 {
+      margin-left: 80%;
+    }
+
+    .col-sm-5th-offset-3 {
+      margin-left: 60%;
+    }
+
+    .col-sm-5th-offset-2 {
+      margin-left: 40%;
+    }
+
+    .col-sm-5th-offset-1 {
+      margin-left: 20%;
+    }
+
+    .col-sm-5th-offset-0 {
+      margin-left: 0%;
+    }
+  }
+  @media (min-width: 992px) {
+    .col-md-5th-1, .col-md-5th-2, .col-md-5th-3, .col-md-5th-4 {
+      float: left;
+    }
+
+    .col-md-5th-5 {
+      float: left;
+      width: 100%;
+    }
+
+    .col-md-5th-4 {
+      width: 80%;
+    }
+
+    .col-md-5th-3 {
+      width: 60%;
+    }
+
+    .col-md-5th-2 {
+      width: 40%;
+    }
+
+    .col-md-5th-1 {
+      width: 20%;
+    }
+
+    .col-md-5th-pull-5 {
+      right: 100%;
+    }
+
+    .col-md-5th-pull-4 {
+      right: 80%;
+    }
+
+    .col-md-5th-pull-3 {
+      right: 60%;
+    }
+
+    .col-md-5th-pull-2 {
+      right: 40%;
+    }
+
+    .col-md-5th-pull-1 {
+      right: 20%;
+    }
+
+    .col-md-5th-pull-0 {
+      right: auto;
+    }
+
+    .col-md-5th-push-5 {
+      left: 100%;
+    }
+
+    .col-md-5th-push-4 {
+      left: 80%;
+    }
+
+    .col-md-5th-push-3 {
+      left: 60%;
+    }
+
+    .col-md-5th-push-2 {
+      left: 40%;
+    }
+
+    .col-md-5th-push-1 {
+      left: 20%;
+    }
+
+    .col-md-5th-push-0 {
+      left: auto;
+    }
+
+    .col-md-5th-offset-5 {
+      margin-left: 100%;
+    }
+
+    .col-md-5th-offset-4 {
+      margin-left: 80%;
+    }
+
+    .col-md-5th-offset-3 {
+      margin-left: 60%;
+    }
+
+    .col-md-5th-offset-2 {
+      margin-left: 40%;
+    }
+
+    .col-md-5th-offset-1 {
+      margin-left: 20%;
+    }
+
+    .col-md-5th-offset-0 {
+      margin-left: 0%;
+    }
+  }
+  @media (min-width: 1200px) {
+    .col-lg-5th-1, .col-lg-5th-2, .col-lg-5th-3, .col-lg-5th-4 {
+      float: left;
+    }
+
+    .col-lg-5th-5 {
+      float: left;
+      width: 100%;
+    }
+
+    .col-lg-5th-4 {
+      width: 80%;
+    }
+
+    .col-lg-5th-3 {
+      width: 60%;
+    }
+
+    .col-lg-5th-2 {
+      width: 40%;
+    }
+
+    .col-lg-5th-1 {
+      width: 20%;
+    }
+
+    .col-lg-5th-pull-5 {
+      right: 100%;
+    }
+
+    .col-lg-5th-pull-4 {
+      right: 80%;
+    }
+
+    .col-lg-5th-pull-3 {
+      right: 60%;
+    }
+
+    .col-lg-5th-pull-2 {
+      right: 40%;
+    }
+
+    .col-lg-5th-pull-1 {
+      right: 20%;
+    }
+
+    .col-lg-5th-pull-0 {
+      right: auto;
+    }
+
+    .col-lg-5th-push-5 {
+      left: 100%;
+    }
+
+    .col-lg-5th-push-4 {
+      left: 80%;
+    }
+
+    .col-lg-5th-push-3 {
+      left: 60%;
+    }
+
+    .col-lg-5th-push-2 {
+      left: 40%;
+    }
+
+    .col-lg-5th-push-1 {
+      left: 20%;
+    }
+
+    .col-lg-5th-push-0 {
+      left: auto;
+    }
+
+    .col-lg-5th-offset-5 {
+      margin-left: 100%;
+    }
+
+    .col-lg-5th-offset-4 {
+      margin-left: 80%;
+    }
+
+    .col-lg-5th-offset-3 {
+      margin-left: 60%;
+    }
+
+    .col-lg-5th-offset-2 {
+      margin-left: 40%;
+    }
+
+    .col-lg-5th-offset-1 {
+      margin-left: 20%;
+    }
+
+    .col-lg-5th-offset-0 {
+      margin-left: 0%;
+    }
+  }
+
+  .avatar {
+    border-radius: 100%;
+    width:100px;
+    height: 100px;
+    background:red;
+    display: block;
+    margin: 0 auto;
+    border: 3px solid #3f484f;
+  }
+
+  .col-md-5th-1 h1 {
+    font-size:22px;
+    font-weight: 100;
+  }
+
+  .col-lg-5th-1 p {
+    font-size:13px !important;
+  }
+
+  .follow-btn2 {
+    font-size: 13px;
+    border:none;
+    border-radius: .2em;
+    background: rgb(51,51,51);
+    color:white !important;
+    width: 150px;
+
+  }
+
+  .all-friends {
+    text-align:center;
+    font-size:34px;
+    font-weight: 100;
+    margin-top:100px;
+  }
+
+</style>
+
+
+<%= render 'partials/nav2' %>
+
+<% if @user.following.count <= 0 && @user.followers.count <= 0 %>
+    <h1 class="all-friends">You have no friends yet :(</h1>
+    <button class="no-friends" onclick="window.location.href='/community'">Add some friends</button>
+
+<% else %>
+
+    <h1 class="all-friends"><%= @user.first_name %>'s Friends</h1>
+<% end %>
+
+<p style="text-align: center;" class="">Followers: <%= @user.followers.count %> Following: <%= @user.following.count %></p>
+
+<div style="margin-top: 100px;" class="container">
+  <div class="row">
+
+    <% @user.followers.each do |follower| %>
+        <div onclick="window.location.href='/user/<%= follower.username %>'" style="cursor: pointer; <% if user_signed_in? %> <% if !current_user.following?(follower) %>background:rgb(240,240,250); color:black !important; <% else %> background:rgb(240,240,240); <% end %> <% end %>" class="col-md-5th-1 col-sm-4">
+          <div style="background: <% if follower.avatar? %> url(<%= follower.avatar.url(:medium) %>) <% else %> url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) <% end %> center center no-repeat; background-size:cover;" class="avatar"></div>
+          <h1><%= follower.first_name + " " + follower.last_name %></h1>
+         <% if user_signed_in? %> <% if !current_user.following?(follower) %> <p style="font-size:13px;"> Fan</p> <% end %> <% end %>
+          <p style="font-size:13px;">User since <%= follower.created_at.strftime('%B/%d/%Y') %></p>
+
+          <% if user_signed_in? %>
+              <% if current_user %>
+                  <% if !current_user.following?(follower) %>
+                      <%= form_for(current_user.active_relationships.build) do |f| %>
+                          <div><%= hidden_field_tag :followed_id, follower.id %></div>
+                          <%= f.submit "Follow", class: "follow-btn2"  %>
+                      <% end %>
+                  <% else %>
+                      <%= form_for(current_user.active_relationships.find_by(followed_id: follower.id), html: {method: :delete}) do |f| %>
+                          <%= f.submit 'Unfollow', class: 'follow-btn2' %>
+                      <% end %>
+                  <% end %>
+              <% end %>
+          <% end %>
+
+
+        </div>
+    <% end %>
+
+  </div>
+
+  <div class="row">
+    <% @user.following.zip(@user.followers).each do |following, follower| %>
+        <% if @user.following.count <= 1 || @user.followers.count <= 1 ||  following.id != follower.id %>
+            <div style="cursor: pointer;" class="col-md-5th-1 col-sm-4">
+              <div style="background: <% if following.avatar? %> url(<%= following.avatar.url(:medium) %>) <% else %> url(https://www.w3schools.com/css/trolltunga.jpg) <% end %> center center no-repeat; background-size:cover;" class="avatar"></div>
+              <h1><%= following.first_name + " " + following.last_name %></h1>
+              <p style="font-size:13px;">User since <%= following.created_at.strftime('%B/%d/%Y') %></p>
+
+              <% if user_signed_in? %>
+                  <% if current_user %>
+                      <% if !current_user.following?(following) %>
+                          <%= form_for(current_user.active_relationships.build) do |f| %>
+                              <div><%= hidden_field_tag :followed_id, following.id %></div>
+                              <%= f.submit "Follow", class: "follow-btn2"  %>
+                          <% end %>
+                      <% else %>
+                          <%= form_for(current_user.active_relationships.find_by(followed_id: following.id), html: {method: :delete}) do |f| %>
+                              <%= f.submit 'Unfollow', class: 'follow-btn2' %>
+                          <% end %>
+                      <% end %>
+                  <% end %>
+              <% end %>
+            </div>
+        <% end %>
+    <% end %>
+
+  </div>
+</div>
+
+
+
+
+
+<%= render 'partials/footer' %>
+
+
+
+
+
+

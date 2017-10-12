@@ -14,53 +14,53 @@
           <% end %>
 
       background-size: 100% auto; margin-top: -12px!important;" class="profile-header">
-    <% if user_signed_in? %>
-      <% if current_user.id != @user.id %>
-          <button class="follow-btn">Follow</button>
-      <% end %>
-      <% if current_user.id == @user.id %>
-          <a href="/users/edit"><button class="follow-btn">Edit Profile</button></a>
-      <% end %>
-    <% end %>
+
   </div>
 
-<div class="profile-container">
+<div style="position: relative;" class="profile-container">
   <% if @user.avatar? %>
     <div style="background: url(<%= @user.avatar.url(:medium) %>) center center no-repeat; background-size:cover;" class="profile-img-container"></div>
   <% else %>
       <div style="background: url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) center center no-repeat; background-size:cover;" class="profile-img-container"></div>
 <% end %>
 
-  <h1 style="color:rgb(81,81,81);"><%= @user.first_name %> <%= @user.last_name %></h1>
+  <h1 class="profile-name" style="color:rgb(81,81,81);"><%= @user.first_name %> <%= @user.last_name %></h1>
+  <h1 style="font-size:12px !important;" class="profile-name">Member since <%= @user.created_at.strftime('%B/%d/%Y') %></h1>
+
+  <h1 <% if user_signed_in? && current_user.id == @user.id %> onclick="window.location.href='/friends'" <% else %> onclick="window.location.href='/user/<%= @user.username %>/friends'" <% end %>  style="font-size:12px !important; cursor: pointer; color:rgb(50,50,200); " class="profile-name">Followers <%= @user.followers.count %></h1>
+  <h1 <% if user_signed_in? && current_user.id == @user.id %> onclick="window.location.href='/friends'" <% else %> onclick="window.location.href='/user/<%= @user.username %>/friends'" <% end %> style="color:rgb(50,50,200); cursor: pointer; font-size:12px !important;" class="profile-name">Following <%= @user.following.count %></h1>
+
+  <% if user_signed_in? %>
+      <% if current_user.id == @user.id %>
+          <a href="/users/edit"><button class="follow-btn">Edit Profile</button></a>
+          <a href="/friends"><button style="top: 150px !important; " class="follow-btn">Your Friends</button></a>
+<% end %>
+  <% end %>
+
+  <%= render 'partials/follow_button' %>
+
+
 </div>
 
+<h1 class="your-articles">Your Articles</h1>
 <!-- Top slider -->
 <% if @user.articles.present? %>
-  <div style="margin-top:40px;" class="slider">
-    <% @user.articles.each do |article| %>
-        <% if article.ispublished? || ( user_signed_in? && article.user.id == current_user.id) %>
-          <div onclick="window.location.href='/articles/<%= article.id %>'" style="position: relative; cursor:pointer;
-              <% if article.cover? %>
-              background:url(<%= article.cover.url(:medium) %>) center center no-repeat;
-              <% else %>
-              background:lightsalmon;
-              <% end %>
-              background-size: cover;" class="slide">
-              <a href="/articles/<%= article.id %>">
-                <div class="hot-product-overlay ">
-                <h1 class="parallax-scroll"><span><%= article.title %></span></h1>
-              </a>
-              <a href="/user/<%= @user.username %>">
-                <h1 class="parallax-scroll"><span>By <%= @user.first_name %> <%= article.created_at.strftime('%B/%d/%Y') %></span></h1>
-                <% if !article.ispublished? && article.user.id == current_user.id %>
-                  <h1 class="parallax-scroll"><span>Not yet published!</span></h1>
-                <% end %>
-              </a>
+
+    <div style="margin-top: 100px;" class="container profile-container2">
+      <div class="row">
+
+        <% @user.articles.each do |article| %>
+            <div style="cursor: pointer;"  class="col-md-5th-1 col-sm-4 profile-articles">
+              <div style=" <% if article.cover? %> background: url(<%= article.cover.url(:medium) %>) <% else %> background: url(http://images.all-free-download.com/images/graphiclarge/blurred_golden_background_192849.jpg) <% end %> center center no-repeat; background-size:cover;" class="profile-article-img"></div>
+              <h1><%= article.title %></h1>
+              <p><%= article.created_at.strftime('%B/%d/%Y') %></p>
             </div>
-          </div>
         <% end %>
-    <% end %>
-  </div>
+
+      </div>
+    </div>
+
+
 <% else %>
   <div class="no-articles">
       <% if user_signed_in? && @user.id == current_user.id  %>

@@ -1,0 +1,479 @@
+
+<style>
+  div [class*="col-"] {
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+    background: rgb(240,240,240);
+    border: 3px solid #fff;
+    border-radius: .3em;
+    color: #000;
+  }
+
+  .col-xs-5th-1, .col-xs-5th-2, .col-xs-5th-3, .col-xs-5th-4 {
+    float: left;
+  }
+
+  .col-xs-5th-5 {
+    float: left;
+    width: 100%;
+  }
+
+  .col-xs-5th-4 {
+    width: 80%;
+  }
+
+  .col-xs-5th-3 {
+    width: 60%;
+  }
+
+  .col-xs-5th-2 {
+    width: 40%;
+  }
+
+  .col-xs-5th-1 {
+    width: 20%;
+  }
+
+  .col-xs-5th-pull-5 {
+    right: 100%;
+  }
+
+  .col-xs-5th-pull-4 {
+    right: 80%;
+  }
+
+  .col-xs-5th-pull-3 {
+    right: 60%;
+  }
+
+  .col-xs-5th-pull-2 {
+    right: 40%;
+  }
+
+  .col-xs-5th-pull-1 {
+    right: 20%;
+  }
+
+  .col-xs-5th-pull-0 {
+    right: auto;
+  }
+
+  .col-xs-5th-push-5 {
+    left: 100%;
+  }
+
+  .col-xs-5th-push-4 {
+    left: 80%;
+  }
+
+  .col-xs-5th-push-3 {
+    left: 60%;
+  }
+
+  .col-xs-5th-push-2 {
+    left: 40%;
+  }
+
+  .col-xs-5th-push-1 {
+    left: 20%;
+  }
+
+  .col-xs-5th-push-0 {
+    left: auto;
+  }
+
+  .col-xs-5th-offset-5 {
+    margin-left: 100%;
+  }
+
+  .col-xs-5th-offset-4 {
+    margin-left: 80%;
+  }
+
+  .col-xs-5th-offset-3 {
+    margin-left: 60%;
+  }
+
+  .col-xs-5th-offset-2 {
+    margin-left: 40%;
+  }
+
+  .col-xs-5th-offset-1 {
+    margin-left: 20%;
+  }
+
+  .col-xs-5th-offset-0 {
+    margin-left: 0%;
+  }
+
+  @media (min-width: 768px) {
+    .col-sm-5th-1, .col-sm-5th-2, .col-sm-5th-3, .col-sm-5th-4 {
+      float: left;
+    }
+
+    .col-sm-5th-5 {
+      float: left;
+      width: 100%;
+    }
+
+    .col-sm-5th-4 {
+      width: 80%;
+    }
+
+    .col-sm-5th-3 {
+      width: 60%;
+    }
+
+    .col-sm-5th-2 {
+      width: 40%;
+    }
+
+    .col-sm-5th-1 {
+      width: 20%;
+    }
+
+    .col-sm-5th-pull-5 {
+      right: 100%;
+    }
+
+    .col-sm-5th-pull-4 {
+      right: 80%;
+    }
+
+    .col-sm-5th-pull-3 {
+      right: 60%;
+    }
+
+    .col-sm-5th-pull-2 {
+      right: 40%;
+    }
+
+    .col-sm-5th-pull-1 {
+      right: 20%;
+    }
+
+    .col-sm-5th-pull-0 {
+      right: auto;
+    }
+
+    .col-sm-5th-push-5 {
+      left: 100%;
+    }
+
+    .col-sm-5th-push-4 {
+      left: 80%;
+    }
+
+    .col-sm-5th-push-3 {
+      left: 60%;
+    }
+
+    .col-sm-5th-push-2 {
+      left: 40%;
+    }
+
+    .col-sm-5th-push-1 {
+      left: 20%;
+    }
+
+    .col-sm-5th-push-0 {
+      left: auto;
+    }
+
+    .col-sm-5th-offset-5 {
+      margin-left: 100%;
+    }
+
+    .col-sm-5th-offset-4 {
+      margin-left: 80%;
+    }
+
+    .col-sm-5th-offset-3 {
+      margin-left: 60%;
+    }
+
+    .col-sm-5th-offset-2 {
+      margin-left: 40%;
+    }
+
+    .col-sm-5th-offset-1 {
+      margin-left: 20%;
+    }
+
+    .col-sm-5th-offset-0 {
+      margin-left: 0%;
+    }
+  }
+  @media (min-width: 992px) {
+    .col-md-5th-1, .col-md-5th-2, .col-md-5th-3, .col-md-5th-4 {
+      float: left;
+    }
+
+    .col-md-5th-5 {
+      float: left;
+      width: 100%;
+    }
+
+    .col-md-5th-4 {
+      width: 80%;
+    }
+
+    .col-md-5th-3 {
+      width: 60%;
+    }
+
+    .col-md-5th-2 {
+      width: 40%;
+    }
+
+    .col-md-5th-1 {
+      width: 20%;
+    }
+
+    .col-md-5th-pull-5 {
+      right: 100%;
+    }
+
+    .col-md-5th-pull-4 {
+      right: 80%;
+    }
+
+    .col-md-5th-pull-3 {
+      right: 60%;
+    }
+
+    .col-md-5th-pull-2 {
+      right: 40%;
+    }
+
+    .col-md-5th-pull-1 {
+      right: 20%;
+    }
+
+    .col-md-5th-pull-0 {
+      right: auto;
+    }
+
+    .col-md-5th-push-5 {
+      left: 100%;
+    }
+
+    .col-md-5th-push-4 {
+      left: 80%;
+    }
+
+    .col-md-5th-push-3 {
+      left: 60%;
+    }
+
+    .col-md-5th-push-2 {
+      left: 40%;
+    }
+
+    .col-md-5th-push-1 {
+      left: 20%;
+    }
+
+    .col-md-5th-push-0 {
+      left: auto;
+    }
+
+    .col-md-5th-offset-5 {
+      margin-left: 100%;
+    }
+
+    .col-md-5th-offset-4 {
+      margin-left: 80%;
+    }
+
+    .col-md-5th-offset-3 {
+      margin-left: 60%;
+    }
+
+    .col-md-5th-offset-2 {
+      margin-left: 40%;
+    }
+
+    .col-md-5th-offset-1 {
+      margin-left: 20%;
+    }
+
+    .col-md-5th-offset-0 {
+      margin-left: 0%;
+    }
+  }
+  @media (min-width: 1200px) {
+    .col-lg-5th-1, .col-lg-5th-2, .col-lg-5th-3, .col-lg-5th-4 {
+      float: left;
+    }
+
+    .col-lg-5th-5 {
+      float: left;
+      width: 100%;
+    }
+
+    .col-lg-5th-4 {
+      width: 80%;
+    }
+
+    .col-lg-5th-3 {
+      width: 60%;
+    }
+
+    .col-lg-5th-2 {
+      width: 40%;
+    }
+
+    .col-lg-5th-1 {
+      width: 20%;
+    }
+
+    .col-lg-5th-pull-5 {
+      right: 100%;
+    }
+
+    .col-lg-5th-pull-4 {
+      right: 80%;
+    }
+
+    .col-lg-5th-pull-3 {
+      right: 60%;
+    }
+
+    .col-lg-5th-pull-2 {
+      right: 40%;
+    }
+
+    .col-lg-5th-pull-1 {
+      right: 20%;
+    }
+
+    .col-lg-5th-pull-0 {
+      right: auto;
+    }
+
+    .col-lg-5th-push-5 {
+      left: 100%;
+    }
+
+    .col-lg-5th-push-4 {
+      left: 80%;
+    }
+
+    .col-lg-5th-push-3 {
+      left: 60%;
+    }
+
+    .col-lg-5th-push-2 {
+      left: 40%;
+    }
+
+    .col-lg-5th-push-1 {
+      left: 20%;
+    }
+
+    .col-lg-5th-push-0 {
+      left: auto;
+    }
+
+    .col-lg-5th-offset-5 {
+      margin-left: 100%;
+    }
+
+    .col-lg-5th-offset-4 {
+      margin-left: 80%;
+    }
+
+    .col-lg-5th-offset-3 {
+      margin-left: 60%;
+    }
+
+    .col-lg-5th-offset-2 {
+      margin-left: 40%;
+    }
+
+    .col-lg-5th-offset-1 {
+      margin-left: 20%;
+    }
+
+    .col-lg-5th-offset-0 {
+      margin-left: 0%;
+    }
+  }
+
+    .avatar {
+      border-radius: 100%;
+      width:100px;
+      height: 100px;
+      background:red;
+      display: block;
+      margin: 0 auto;
+      border: 3px solid darw;
+    }
+
+    .col-md-5th-1 h1 {
+      font-size:22px;
+      font-weight: 100;
+    }
+
+    .col-lg-5th-1 p {
+      font-size:13px !important;
+    }
+
+    .follow-btn2 {
+      font-size:14px;
+      border:none;
+      border-radius: .3em;
+      background:rgb(51,51,51);
+      width:150px;
+      color:white !important;
+    }
+
+</style>
+
+
+<%= render 'partials/nav2' %>
+
+
+
+<div style="margin-top: 100px;" class="container">
+  <div class="row">
+
+    <% @users.each do |user| %>
+        <% if !user_signed_in? || user.id != current_user.id    %>
+      <div style="cursor: pointer;" onclick="window.location.href='/user/<%= user.username %>'" class="col-md-5th-1 col-sm-4">
+        <div style="background: <% if user.avatar? %> url(<%= user.avatar.url(:medium) %>) <% else %> url(https://www.w3schools.com/css/trolltunga.jpg) <% end %> center center no-repeat; background-size:cover;" class="avatar"></div>
+        <h1><%= user.first_name + " " + user.last_name %></h1>
+        <p style="font-size:13px;">User since <%= user.created_at.strftime('%B/%d/%Y') %></p>
+        <% if user_signed_in? %>
+            <% if current_user.id != user.id %>
+                <% if !current_user.following?(user) %>
+                    <%= form_for(current_user.active_relationships.build) do |f| %>
+                        <div><%= hidden_field_tag :followed_id, user.id %></div>
+                        <%= f.submit "Follow", class: "follow-btn2"  %>
+                    <% end %>
+                <% else %>
+                    <%= form_for(current_user.active_relationships.find_by(followed_id: user.id), html: {method: :delete}) do |f| %>
+                        <%= f.submit 'Unfollow', class: 'follow-btn2' %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+        <% end %>
+  </div>
+</div>
+
+
+
+
+<%= render 'partials/footer' %>
+
+
+
+
+
+
