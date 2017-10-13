@@ -92,7 +92,7 @@
 <div style=" background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= @article.cover.url(:large) %>) center center no-repeat; background-size: cover" class="image-header">
   <h1><%= @article.title %></h1>
   <% if user_signed_in? %>
-      <% if current_user.id == @article.user.id %>
+      <% if user_signed_in? && current_user.id == @article.user.id %>
   <a href="/articles/<%= @article.id %>/edit"><button class="go-back">Keep Editing</button></a>
        <% if @article.ispublished? == false %>
     <%= link_to publish_article_path(@article), :method => :put do %>
@@ -108,7 +108,9 @@
       <p class="heart"><span class="num-of-likes likes-count"><%= @article.get_upvotes.size %></span>
 
 
-        <i style="<% if current_user.liked? @article %> color:rgb(200,50,50); <% else %> color: white;  <% end %>" class="fa fa-heart"></i>
+        <% if user_signed_in? %>
+
+      <i style="<% if current_user.liked? @article %> color:rgb(200,50,50); <% else %> color: white;  <% end %>" class="fa fa-heart"></i>
 
 
         <% if current_user.liked? @article %>
@@ -117,9 +119,14 @@
             <span class="i-like">I like this article!</span>
       <% end %>
 
+      <% else %>
+
+        <span style="display: inline-block; transform: translateY(-5px)">Likes</span>
+        <% end %>
+
       </p>
   <% end %>
-  <p class="article-submitter">By <%= @article.user.first_name + " " + @article.user.last_name %></p>
+  <p style="transform: translateY(15px) !important;" class="article-submitter">By <%= @article.user.first_name + " " + @article.user.last_name %></p>
 </div>
 
 

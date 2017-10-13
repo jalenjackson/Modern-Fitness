@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   get '/user/:id' => 'profiles#profile'
   get '/user/:id/friends' => 'profiles#followers'
   get '/user/:id/articles' => 'profiles#articles'
+  get '/user/:id/questions' => 'profiles#questions'
+
 
 
 

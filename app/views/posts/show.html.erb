@@ -96,11 +96,15 @@
       <p class="heart"><span class="num-of-likes likes-count"><%= @post.get_upvotes.size %></span>
 
 
-        <i style="<% if current_user.liked? @post %> color:rgb(200,50,50); <% else %> color: white;  <% end %>" class="fa fa-heart"></i>
+        <% if user_signed_in? %>
+          <i style=" <% if current_user.liked? @post %>  color:rgb(200,50,50); <% else %> color: white;  <% end %>" class="fa fa-heart"></i>
+        <% else %>
+          <span style="transform: translateY(-5px); display: inline-block;">Likes</span>
+        <% end %>
 
       </p>
   <% end %>
-  <p class="article-submitter"><%= @post.title %> <span style="font-size:13px;">asked by <%= @post.user.first_name + " " + @post.user.last_name %></span></p>
+  <p style="transform: translateY(13px) !important;" class="article-submitter"><%= truncate(@post.title, length: 100) %> <span style="font-size:13px;">asked by <%= @post.user.first_name + " " + @post.user.last_name %></span></p>
 </div>
 
 

@@ -71,7 +71,7 @@
         </div>
       </div>
 
-      <p class="all-articles" style="text-align:center; margin-top: 30px; color:rgb(100,150,200); cursor: pointer;">All Articles</p>
+      <p onclick="window.location.href=''" class="all-articles" style="text-align:center; margin-top: 30px; color:rgb(100,150,200); cursor: pointer;">All Articles</p>
 
   <% end %>
 
@@ -82,8 +82,9 @@
         <div class="row">
 
           <% @user.posts.limit(8).each do |post| %>
-              <div style="cursor: pointer; margin-top: 20px;"  class="col-md-5th-1 col-sm-4 profile-articles">
+              <div onclick="window.location.href='/posts/<%= post.id %>'" style="cursor: pointer; margin-top: 20px;"  class="col-md-5th-1 col-sm-4 profile-articles">
                 <h1><%= post.title %></h1>
+                <p><%= post.created_at.strftime('%B/%d/%Y') %></p>
                 <p>replies <%= post.comments.count %></p>
               </div>
           <% end %>
@@ -91,7 +92,7 @@
         </div>
       </div>
 
-      <p style="text-align:center; margin-top: 30px; color:rgb(100,150,200); cursor: pointer;">All Questions</p>
+      <p onclick="window.location.href='/'" style="text-align:center; margin-top: 30px; color:rgb(100,150,200); cursor: pointer;">All Questions</p>
 
   <% end %>
 
