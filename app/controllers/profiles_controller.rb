@@ -17,4 +17,10 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def articles
+    if User.find_by_username(params[:id])
+      @user = User.find_by_username(params[:id])
+    end
+  end
+
   end

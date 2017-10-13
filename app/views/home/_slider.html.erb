@@ -1,13 +1,16 @@
 <div class="six-columns">
-  <div class="center-content">
-    <div class="columns6"></div>
-    <div class="columns6"></div>
-    <div class="columns6"></div>
-    <div class="columns6"></div>
-    <div class="columns6"></div>
-    <div class="columns6"></div>
+
+  <div style="transform:translateY(30px)">
+    <% @posts.each do |post| %>
+      <div  onclick="window.location.href='/posts/<%= post.id %>'" style="position: relative; cursor: pointer;" class="columns6">
+        <h1><%= post.title %></h1>
+        <h1><%= post.comments.count %> replies</h1>
+      </div>
+    <% end %>
+
   </div>
+
 
 </div>
 
-<p class="all-forumns">All Forums</p>
+<p onclick="window.location.href='/posts'" class="all-forumns">All Questions</p>

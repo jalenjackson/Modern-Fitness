@@ -1,0 +1,263 @@
+<style>
+  .nav-pills-custom>li>a {
+    color: lightgrey;
+  }
+
+  .nav-pills-custom>li>a:focus,
+  .nav-pills-custom>li>a:hover {
+    background: none;
+    color: grey;
+  }
+
+  .panel-custom>.panel-heading {
+    background: none;
+    border-bottom: none;
+  }
+
+  .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    background-color: #337AB7;
+  }
+  .form-control-nav{
+    background-color:#F0FFFF;
+    border: lightgrey solid 1px;
+    border-radius:15px;
+  }
+  body{
+    background-color: #F0FFFF;
+  }
+  .navbar-default .navbar-collapse, .navbar-default{
+    background-color: white;
+  }
+  .panel-footer{
+    background-color: rgb(51,51,51);
+  }
+  .well{
+    background-color: lightcyan;
+  }
+  a{
+    color:#60A6C1;
+  }
+  div.panel-heading{
+    padding-top:15px;
+    padding-bottom: 0px;
+  }
+  .form-control-feedback{
+    line-height:27px;
+  }
+  .panel-info{
+    border:1px lightgrey solid;
+  }
+
+    .user-profile {
+      border-radius: 100%;
+      background:red;
+      display: block;
+      margin: 0 auto;
+      width:100px;
+      height: 100px;
+      transform: translateY(-30px);
+    }
+
+
+    .user-profile-name {
+      font-size: 13px;
+      color:grey;
+      margin-top: -20px;
+    }
+
+    .home-btn {
+      border:none;
+      border-radius: .3em;
+      background: rgb(51,51,51);
+      color:white !important;
+    }
+
+    .panel-footer a {
+      color:white !important;
+    }
+
+    .panel-heading {
+      background: rgb(240,240,240) !important;
+    }
+
+    .avatar {
+      border-radius: 100%;
+      width: 50px;
+      height: 50px;
+    }
+
+    .hr {
+      border-color: lightgrey;
+      border-width: 2px !important;
+      box-shadow: 0 2px 5px 1px rgba(#000, 0.2);
+    }
+
+
+    .fa-heart {
+      margin-top: 20px;
+      font-size:20px;
+      color:rgb(200,50,50);
+    }
+
+
+</style>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+
+          <a href="/user/<%= current_user.username %>"><img class="img-responsive" alt="" <% if current_user.avatar? %> src="<%= current_user.avatar.url(:medium) %>" <% else %> src="http://img.freepik.com/free-vector/abstract-white-poly-background_1390-389.jpg?size=338&ext=jpg" <% end %>> </a>
+          <div onclick="window.location.href='/user/<%= current_user.username %>'" style=" cursor: pointer; background: <% if current_user.avatar? %> url(<%= current_user.avatar.url(:medium) %>) <% else %> url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) <% end %> center center no-repeat; background-size: cover;" class="user-profile">
+          </div>
+          <h1 class="user-profile-name">Jalen Jackson</h1>
+          <div class="row">
+            <div class="col-xs-3">
+              <h5>
+                <small>ARTICLES</small>
+                <a href="/user/<%= current_user.username %>/articles"><%= current_user.articles.count %></a>
+              </h5>
+            </div>
+            <div class="col-xs-4">
+              <h5>
+                <small>FOLLOWING</small>
+                <a href="/user/<%= current_user.username %>/friends"><%= current_user.following.count %></a>
+              </h5>
+            </div>
+            <div class="col-xs-5">
+              <h5>
+                <small>FOLLOWERS</small><br/>
+                <a href="/user/<%= current_user.username %>/friends"><%= current_user.followers.count %></a>
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default panel-custom">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Latest Questions
+            <small><a href="#"><%= Time.current.strftime('%B/%d/%Y') %></a></small>
+          </h3>
+        </div>
+
+        <div class="panel-body">
+          <ul class="list-unstyled">
+            <% @posts.each do |post| %>
+              <li><a href="posts/<%= post.id %>"><%= post.title %></a></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="media">
+
+            <div class="media-body">
+              <div class="form-group has-feedback">
+                <label class="control-label sr-only" for="inputSuccess5">Hidden label</label>
+                <input placeholder="Search Articles" type="text" class="form-control" id="search2" aria-describedby="search">
+                <span id="search2" class="sr-only">(success)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+
+          <% @articles.each do |article| %>
+
+          <div class="media">
+            <a class="media-left" href="#fake">
+              <div style="background: <% if article.user.avatar? %> url(<%= article.user.avatar.url(:medium) %>) <% else %> url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) <% end %> center center no-repeat; background-size:cover; " class="media-object img-rounded avatar"></div>
+            </a>
+            <div class="media-body">
+              <h4 style="cursor: pointer; " onclick="window.location.href='/user/<%= article.user.username %>'" class="media-heading"><%= current_user.first_name + " " + current_user.last_name %></h4>
+              <p style="cursor: pointer;"  onclick="window.location.href='/articles/<%= article.id %>'"><%= article.title %></p>
+              <div onclick="window.location.href='/articles/<%= article.id %>'" style=" cursor: pointer; background: url(<%= article.cover.url(:medium) %>) center center no-repeat; background-size: cover;" class="media-left-img"></div>
+
+              <span><span style="display: inline-block;color: rgb(100,150,200); cursor: pointer; transform: translateY(-4px); font-size:14px;padding-right: 5px;"><%= article.get_upvotes.size %></span><i class="fa fa-heart"></i></span>
+
+
+
+            </div>
+          </div>
+
+              <hr class="hr"/>
+              <% end %>
+
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <p onclick="window.location.href='/articles'" style=" cursor: pointer; text-align:center; color:rgb(100,150,200)">See All Articles</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="panel panel-default panel-custom">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Who to follow
+            <small><a href="/">Refresh</a> ● <a href="/community">View all</a></small>
+          </h3>
+        </div>
+        <div class="panel-body">
+
+
+          <% @users.limit(3).each do |user| %>
+            <div class="media">
+              <div class="media-left">
+                <img src="http://placehold.it/32x32" alt="" class="media-object img-rounded">
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><%= user.first_name + " " + user.last_name %></h4>
+                <a href="#" class="btn btn-default btn-xs">
+                  +
+                  <span class="glyphicon glyphicon-user"></span>
+
+                  <% if user_signed_in? %>
+                      <% if current_user.id != user.id %>
+                          <% if !current_user.following?(user) %>
+                              <%= form_for(current_user.active_relationships.build) do |f| %>
+                                  <div><%= hidden_field_tag :followed_id, user.id %></div>
+                                  <%= f.submit "Follow", class: "home-btn"  %>
+                              <% end %>
+                          <% else %>
+                              <%= form_for(current_user.active_relationships.find_by(followed_id: user.id), html: {method: :delete}) do |f| %>
+                                  <%= f.submit 'Unfollow', class: 'home-btn' %>
+                              <% end %>
+                          <% end %>
+                      <% end %>
+                  <% end %>
+                </a>
+              </div>
+            </div>
+          <% end %>
+
+
+
+        </div>
+        <div class="panel-footer">
+          <a href="www.google.it">
+            <span class="glyphicon glyphicon-user"></span>
+            Find people you know
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

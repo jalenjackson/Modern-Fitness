@@ -5,10 +5,18 @@ Rails.application.routes.draw do
   end
 
   resources :articles do
+
+    member do
+      put "like" => "articles#upvote"
+      put "unlike" => "articles#downvote"
+    end
+
     member do
       put :publish
     end
   end
+
+  get 'articles/:id/likes' => 'articles#likes'
 
   get '/community' => 'community#index'
 
@@ -18,6 +26,8 @@ Rails.application.routes.draw do
 
   get '/user/:id' => 'profiles#profile'
   get '/user/:id/friends' => 'profiles#followers'
+  get '/user/:id/articles' => 'profiles#articles'
+
 
 
   get '/startselling' => 'startselling#index'

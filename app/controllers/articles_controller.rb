@@ -1,7 +1,9 @@
 class ArticlesController < ApplicationController
 
 
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+
+  respond_to :js, :json, :html
 
   # GET /articles
   # GET /articles.json
@@ -22,6 +24,24 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+  end
+
+  def upvote
+    if !current_user.liked? @article
+      @article.liked_by current_user
+    elsif current_user.liked? @article
+      @article.unliked_by current_user
+    end
+  end
+
+  def downvote
+    @article.downvote_from current_user
+    redirect_to articles_path
+  end
+
+  def likes
+    @users = User.all
+    @article = Article.find(params[:id])
   end
 
   def publish

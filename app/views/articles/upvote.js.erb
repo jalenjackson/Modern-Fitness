@@ -1,0 +1,21 @@
+<% if current_user.liked? @article %>
+
+  $(".fa-heart").css({
+      color: "rgb(200,50,50)"
+  });
+
+  $(".i-like").html("You liked this article!");
+
+<% else %>
+
+$(".fa-heart").css({
+    color: "white"
+});
+
+$(".i-like").html("I like this article!");
+
+
+<% end %>
+
+
+  $(".likes-count").html("<%= @article.get_upvotes.size %>");

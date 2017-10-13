@@ -1,0 +1,38 @@
+<%= render 'partials/nav2' %>
+
+
+<h1 style="margin-top:100px;" class="your-articles"><% if @user.id == current_user.id %>Your<% else %><%= @user.firstn_name %>'s<% end %> Articles</h1>
+
+
+
+
+<% if @user.articles.present? %>
+
+    <div style="margin-top: 100px;" class="container profile-container2">
+      <div class="row">
+
+        <% @user.articles.each do |article| %>
+            <div style="cursor: pointer;"  class="col-md-5th-1 col-sm-4 profile-articles">
+              <div style=" <% if article.cover? %> background: url(<%= article.cover.url(:medium) %>) <% else %> background: url(http://images.all-free-download.com/images/graphiclarge/blurred_golden_background_192849.jpg) <% end %> center center no-repeat; background-size:cover;" class="profile-article-img"></div>
+              <h1><%= article.title %></h1>
+              <p><%= article.created_at.strftime('%B/%d/%Y') %></p>
+            </div>
+        <% end %>
+
+      </div>
+    </div>
+
+
+<% else %>
+    <div class="no-articles">
+      <% if user_signed_in? && @user.id == current_user.id  %>
+          <h1 style="color:rgb(81,81,81);">You don't have any articles <i class="fa fa-frown-o" aria-hidden="true"></i></h1>
+      <% else %>
+          <h1><%= @user.first_name %> does not have any articles <i class="fa fa-frown-o" aria-hidden="true"></i></h1>
+      <% end %>
+
+    </div>
+<% end %>
+
+
+<%= render 'partials/footer' %>

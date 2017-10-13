@@ -12,6 +12,82 @@
     .logo {
       filter: invert(100%);
     }
+
+    .icons {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background:rgb(51,51,51);
+      box-shadow: 0 2px 5px 1px rgba(#000, 0.2);
+    }
+
+    .article-submitter {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top:0;
+      margin: auto;
+      text-align: center;
+      width:auto;
+      pointer-events: none;
+
+    }
+
+   .icons p {
+     margin-left: 50px;
+     transform: translateY(19px) !important;
+     font-size:30px;
+     color:white;
+     font-weight: 100;
+   }
+
+    .fa-heart {
+      font-size:30px !important;
+      cursor: pointer;
+      z-index: 999999999999999999999;
+    }
+
+    .i-like {
+      margin-left: 10px !important;
+      display: inline-block;
+      transform: translate(-10px,-5px);
+      opacity: 0;
+    }
+
+    .show-i-like {
+    }
+
+
+
+    @keyframes show {
+      0%{
+        transform: translate(-10px,-5px);
+
+        opacity: 0;
+
+      }
+      100%{
+        transform: translate(0px,-5px);
+        opacity: 1;
+
+      }
+    }
+
+    .heart:hover .i-like {
+      animation: show 500ms ease-in-out forwards;
+    }
+
+    .heart {
+      cursor: pointer;
+      z-index: 999999999999999999;
+    }
+
+    .num-of-likes {
+      display: inline-block;
+      transform: translateY(-5px);
+    }
 </style>
 <div style=" background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= @article.cover.url(:large) %>) center center no-repeat; background-size: cover" class="image-header">
   <h1><%= @article.title %></h1>
@@ -27,6 +103,24 @@
  <% end %>
 </div>
 
+<div class="icons">
+  <%= link_to like_article_path(@article), class: "like-btn", method: :put, remote: :true do  %>
+      <p class="heart"><span class="num-of-likes likes-count"><%= @article.get_upvotes.size %></span>
+
+
+        <i style="<% if current_user.liked? @article %> color:rgb(200,50,50); <% else %> color: white;  <% end %>" class="fa fa-heart"></i>
+
+
+        <% if current_user.liked? @article %>
+          <span class="i-like">You Liked This Article!</span>
+        <% else %>
+            <span class="i-like">I like this article!</span>
+      <% end %>
+
+      </p>
+  <% end %>
+  <p class="article-submitter">By <%= @article.user.first_name + " " + @article.user.last_name %></p>
+</div>
 
 
 <% if user_signed_in? %>
@@ -68,6 +162,7 @@
             $(".article-submission").addClass("slide-down");
         },2500);
     });
+
 
 
 </script>

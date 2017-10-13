@@ -8,7 +8,7 @@ class AddFirstnameToUsers < ActiveRecord::Migration[5.1]
 
     add_index :users, :first_name
     add_index :users, :last_name
-    add_index :users, :username
+    add_index :users, :username, unique: true
 
 
   end

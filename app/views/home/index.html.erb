@@ -5,7 +5,14 @@
 
 <%= render 'slider' %>
 
+
+<% if user_signed_in? %>
+
+  <%= render 'partials/home' %>
+<% else %>
 <%= render 'user_content' %>
+
+<% end %>
 
 <%= render 'partials/footer' %>
 
