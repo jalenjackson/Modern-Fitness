@@ -55,6 +55,21 @@
   height: 40px;
 }
 
+.footer-ul {
+  list-style-type: none;
+  text-align:center;
+  transform: translateY(5px) !important;
+}
+
+.footer-ul li {
+  color:rgb(100,150,200);
+  text-transform: uppercase;
+  text-align:center;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 20px;
+}
+
 .bottom-portion {
   color:grey !important;
 }
@@ -65,7 +80,6 @@
 
 .footer-name {
   font-size:40px !important;
-  transform: translateY(63px);
   color:grey;
   text-align: center;
 }

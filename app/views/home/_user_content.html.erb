@@ -118,7 +118,7 @@
 
 
   <% @articles.limit(14).each do |article| %>
-      <div class="grid__item grid__item--height3">
+      <div  class="grid__item grid__item--height3">
         <a href="/articles/<%= article.id %>">
           <div style="background:url(<%= article.cover.url(:medium) %>) center center no-repeat; background-size:cover;" class="article-img-container"></div>
         </a>

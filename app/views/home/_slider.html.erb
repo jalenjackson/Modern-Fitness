@@ -4,7 +4,7 @@
     <% @posts.limit(6).each do |post| %>
       <div  onclick="window.location.href='/posts/<%= post.id %>'" style="position: relative; cursor: pointer;" class="columns6">
 
-        <div style="position:absolute; width: 100%; height: 100%;">
+        <div class="inside-six" style="position:absolute;  width: 100%; height: 100%;">
           <h1><%= truncate(post.title, length: 100) %></h1>
           <h1><%= post.comments.count %> replies</h1>
         </div>

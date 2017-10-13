@@ -169,11 +169,11 @@
             </div>
           </div>
         </div>
-        <div class="panel-body">
+        <div  class="panel-body">
 
           <% @articles.limit(14).each do |article| %>
 
-          <div class="media">
+          <div  class="media">
             <a class="media-left" href="#fake">
               <div style="background: <% if article.user.avatar? %> url(<%= article.user.avatar.url(:medium) %>) <% else %> url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) <% end %> center center no-repeat; background-size:cover; " class="media-object img-rounded avatar"></div>
             </a>
