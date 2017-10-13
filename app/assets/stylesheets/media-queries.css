@@ -68,6 +68,8 @@
     .six-columns {
         white-space:nowrap;
         overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        overflow-scrolling: touch;
     }
 
     .inside-six {
