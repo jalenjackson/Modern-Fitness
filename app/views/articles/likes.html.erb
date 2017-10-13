@@ -441,7 +441,7 @@
 
 <div style="margin-top: 100px; text-align:center">
   <h1 style="font-size:14px;"><%= @article.title %> By <%= @article.user.first_name + " " + @article.user.last_name %> </h1>
-  <h1 style="font-size:14px;"><%= pluralize(@article.get_upvotes.size, "person") %> Liked this article <% if current_user.liked? @article %> including you! <% end %> </h1>
+  <h1 style="font-size:14px;"><%= pluralize(@article.get_upvotes.size, "person") %> Liked this article <% if user_signed_in? %> <% if current_user.liked? @article %>  including you! <% end %> <% end %> </h1>
 </div>
 
 

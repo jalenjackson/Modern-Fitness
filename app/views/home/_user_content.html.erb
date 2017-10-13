@@ -134,9 +134,8 @@
               <h1><%= article.title %></h1>
             </a>
         <% end %>
-        <a href="/user/<%= article.user.username %>">
-          <h1 class="parallax-scroll article-owner"><span>By <%= article.user.first_name %> <%= article.created_at.strftime('%B/%d/%Y') %></span></h1>
-        </a>
+          <h1 style="cursor: pointer;" onclick="window.location.href='/user/<%= article.user.username %>'" class="parallax-scroll article-owner"><span>By <%= article.user.first_name %> <%= article.created_at.strftime('%B/%d/%Y') %></span></h1>
+          <h1 style="cursor: pointer;" onclick="window.location.href='/articles/<%= article.id %>/likes'"><span style="color:rgb(100,150,200)"><%= article.get_upvotes.size %></span> <i style="color:red;" class="fa fa-heart"></i></h1>
       </div>
   <% end %>
 
