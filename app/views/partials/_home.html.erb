@@ -181,7 +181,7 @@
               <p style="cursor: pointer;"  onclick="window.location.href='/articles/<%= article.id %>'"><%= article.title %></p>
               <div onclick="window.location.href='/articles/<%= article.id %>'" style=" cursor: pointer; background: url(<%= article.cover.url(:medium) %>) center center no-repeat; background-size: cover;" class="media-left-img"></div>
 
-              <span><span style="display: inline-block;color: rgb(100,150,200); cursor: pointer; transform: translateY(-4px); font-size:14px;padding-right: 5px;"><%= article.get_upvotes.size %></span><i class="fa fa-heart"></i></span>
+              <span onclick="window.location.href='/articles/<%= article.id %>/likes'"><span style="display: inline-block;color: rgb(100,150,200); cursor: pointer; transform: translateY(-4px); font-size:14px;padding-right: 5px;"><%= article.get_upvotes.size %></span><i class="fa fa-heart"></i></span>
 
 
 
