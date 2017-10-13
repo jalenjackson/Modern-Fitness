@@ -446,9 +446,10 @@
 <%= render 'partials/nav2' %>
 
 <% if @user.following.count <= 0 && @user.followers.count <= 0 %>
-    <h1 class="all-friends"> <% if @user.id == current_user.id %> You have no friends yet :( <% else  %> <%= @user.first_name %> doesn't have any friends yet :( <% end %></h1>
-    <button class="no-friends" onclick="window.location.href='/community'">Add some friends</button>
-
+    <h1 class="all-friends"> <% if user_signed_in? && @user.id == current_user.id %> You have no friends yet :( <% else  %> <%= @user.first_name %> doesn't have any friends yet :( <% end %></h1>
+    <% if user_signed_in? && @user.id == current_user.id %>
+      <button style="display: block;margin: 0 auto; border:none;background:rgb(51,51,51); color:white;" class="no-friends" onclick="window.location.href='/community'">Add some friends</button>
+    <% end %>
 <% else %>
 
     <h1 class="all-friends"><%= @user.first_name %>'s Friends</h1>
@@ -489,9 +490,9 @@
 
   <div class="row">
     <% @user.following.zip(@user.followers).each do |following, follower| %>
-        <% if @user.following.count <= 1 || @user.followers.count <= 1 ||  following.id != follower.id %>
+        <% if @user.following.count <= 0 || @user.followers.count <= 0 ||  following.id != follower.id %>
             <div style="cursor: pointer;" class="col-md-5th-1 col-sm-4">
-              <div style="background: <% if following.avatar? %> url(<%= following.avatar.url(:medium) %>) <% else %> url(https://www.w3schools.com/css/trolltunga.jpg) <% end %> center center no-repeat; background-size:cover;" class="avatar"></div>
+              <div style="background: <% if following.avatar? %> url(<%= following.avatar.url(:medium) %>) <% else %> url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) <% end %> center center no-repeat; background-size:cover;" class="avatar"></div>
               <h1><%= following.first_name + " " + following.last_name %></h1>
               <p style="font-size:13px;">User since <%= following.created_at.strftime('%B/%d/%Y') %></p>
 

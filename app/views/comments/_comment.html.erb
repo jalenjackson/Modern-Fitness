@@ -1,10 +1,25 @@
-<p>
-  <%= comment.user.email %>:
+<style>
+  .comment-avatar {
+    width:50px;
+    height: 50px;
+    border-radius: 100%;
+    float:left;
+    position: relative;
+  }
+
+</style>
+<div style="background: <% if comment.user.avatar? %> url(<%= comment.avatar.url(:medium) %>) <% else %>  url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) <% end %> center center no-repeat; background-size:cover;" class="comment-avatar"></div>
+<p style="transform: translate(10px, 5px); font-family: Roboto, sans-serif; color:grey; font-size:14px !important; font-weight: bold;">
+  <%= comment.user.first_name + " " + comment.user.last_name %>
 </p>
-<p>
+<br/>
+<p style="margin-left: 60px; margin-right: 100px;">
   <%= comment.comment %>
 </p>
 <% if current_user == comment.user %>
-  <%= link_to "Edit", edit_post_comment_path(comment.post, comment) %>
+  <div style="transform: translateX(60px)"><%= link_to "Edit", edit_post_comment_path(comment.post, comment) %>
   <%= link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
 <% end %>
+
+<hr/>

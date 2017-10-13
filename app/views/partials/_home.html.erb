@@ -110,7 +110,7 @@
         <div class="panel-body">
 
 
-          <a href="/user/<%= current_user.username %>"><img class="img-responsive" alt="" <% if current_user.avatar? %> src="<%= current_user.avatar.url(:medium) %>" <% else %> src="http://img.freepik.com/free-vector/abstract-white-poly-background_1390-389.jpg?size=338&ext=jpg" <% end %>> </a>
+          <a href="/user/<%= current_user.username %>"><img class="img-responsive" alt="" <% if current_user.header? %> src="<%= current_user.header.url(:medium) %>" <% else %> src="https://ak3.picdn.net/shutterstock/videos/30182473/thumb/1.jpg" <% end %>> </a>
           <div onclick="window.location.href='/user/<%= current_user.username %>'" style=" cursor: pointer; background: <% if current_user.avatar? %> url(<%= current_user.avatar.url(:medium) %>) <% else %> url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) <% end %> center center no-repeat; background-size: cover;" class="user-profile">
           </div>
           <h1 class="user-profile-name">Jalen Jackson</h1>
@@ -139,7 +139,7 @@
 
       <div class="panel panel-default panel-custom">
         <div class="panel-heading">
-          <h3 class="panel-title">
+          <h3 style="transform: translateY(-9px)" class="panel-title">
             Latest Questions
             <small><a href="#"><%= Time.current.strftime('%B/%d/%Y') %></a></small>
           </h3>
@@ -147,8 +147,9 @@
 
         <div class="panel-body">
           <ul class="list-unstyled">
-            <% @posts.each do |post| %>
-              <li><a href="posts/<%= post.id %>"><%= post.title %></a></li>
+            <% @posts.limit(40).each do |post| %>
+              <li><a href="posts/<%= post.id %>"><%= truncate(post.title, length:100) %></a></li>
+                <hr/>
             <% end %>
           </ul>
         </div>
@@ -170,7 +171,7 @@
         </div>
         <div class="panel-body">
 
-          <% @articles.each do |article| %>
+          <% @articles.limit(14).each do |article| %>
 
           <div class="media">
             <a class="media-left" href="#fake">
@@ -209,7 +210,7 @@
     <div class="col-sm-3">
       <div class="panel panel-default panel-custom">
         <div class="panel-heading">
-          <h3 class="panel-title">
+          <h3 style="transform: translateY(-9px)" class="panel-title">
             Who to follow
             <small><a href="/">Refresh</a> ● <a href="/community">View all</a></small>
           </h3>
@@ -217,13 +218,16 @@
         <div class="panel-body">
 
 
-          <% @users.limit(3).each do |user| %>
-            <div class="media">
+          <% @users.limit(7).each do |user| %>
+              <% if user_signed_in? && current_user.id != user.id %>
+
+        <div class="media">
               <div class="media-left">
                 <img src="http://placehold.it/32x32" alt="" class="media-object img-rounded">
               </div>
               <div class="media-body">
                 <h4 class="media-heading"><%= user.first_name + " " + user.last_name %></h4>
+
                 <a href="#" class="btn btn-default btn-xs">
                   +
                   <span class="glyphicon glyphicon-user"></span>
@@ -246,6 +250,7 @@
               </div>
             </div>
           <% end %>
+              <% end %>
 
 
 
@@ -253,7 +258,7 @@
         <div class="panel-footer">
           <a href="www.google.it">
             <span class="glyphicon glyphicon-user"></span>
-            Find people you know
+            Find people
           </a>
         </div>
       </div>

@@ -411,7 +411,6 @@
     background:red;
     display: block;
     margin: 0 auto;
-    border: 3px solid #3f484f;
   }
 
   .col-md-5th-1 h1 {
@@ -455,7 +454,7 @@
 <%= render 'partials/nav2' %>
 
 
-<% if current_user.following.count <= 0 %>
+<% if current_user.following.count <= 0 && current_user.followers.count <= 0 %>
 <h1 class="all-friends">You have no friends yet :(</h1>
 <button class="no-friends" onclick="window.location.href='/community'">Add some friends</button>
 
@@ -470,9 +469,9 @@
     <% current_user.followers.each do |follower| %>
         <div style="<% if !current_user.following?(follower) %>background:rgb(91,91,91); color:white !important; <% else %> background:rgb(240,240,240); <% end %>" class="col-md-5th-1 col-sm-4">
           <div style="background: <% if follower.avatar? %> url(<%= follower.avatar.url(:medium) %>) <% else %> url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) <% end %> center center no-repeat; background-size:cover;" class="avatar"></div>
-          <h1><%= follower.first_name + " " + follower.last_name %></h1>
-          <% if !current_user.following?(follower) %> <p style="font-size:13px;"> Fan</p> <% end %>
-          <p style="font-size:13px;">User since <%= follower.created_at.strftime('%B/%d/%Y') %></p>
+          <h1 style="color:black;"><%= follower.first_name + " " + follower.last_name %></h1>
+          <% if !current_user.following?(follower) %> <p style="font-size:13px; color:black;"> Fan</p> <% end %>
+          <p style="font-size:13px; color:black;">User since <%= follower.created_at.strftime('%B/%d/%Y') %></p>
 
           <% if user_signed_in? %>
               <% if current_user %>
@@ -498,7 +497,7 @@
   <div class="row">
     <% current_user.following.zip(current_user.followers).each do |following, follower| %>
 
-          <% if current_user.following.count <= 1 || current_user.followers.count <= 1 || following.id != follower.id   %>
+          <% if current_user.following.count <= 0 || current_user.followers.count <= 0 || following.id != follower.id   %>
   <div class="col-md-5th-1 col-sm-4">
           <div style="background: <% if following.avatar? %> url(<%= following.avatar.url(:medium) %>) <% else %> url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) <% end %> center center no-repeat; background-size:cover;" class="avatar"></div>
           <h1><%= following.first_name + " " + following.last_name %></h1>

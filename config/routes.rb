@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
+
+
   get 'articles/:id/likes' => 'articles#likes'
 
   get '/community' => 'community#index'
@@ -48,7 +50,10 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :posts do
+
+    member do
+      put "like" => "posts#vote"
+    end
     resources :comments
   end
-
 end

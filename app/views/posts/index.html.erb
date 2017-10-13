@@ -1,21 +1,146 @@
-<h3>
-  <%= link_to "Home", root_path %>
-  <br>
-  <%= link_to "Add New Post", new_post_path %>
-</h3>
-<% @posts.each do |p| %>
-  <h2>
-    <%= link_to p.title, p %>
-  </h2>
-  <p>
-    Published
-    <%= time_ago_in_words(p.created_at) %>
-    by
-    <%= p.user.email %>
-    <br>
-    <% if current_user.email == p.user.email  %>
-        <%= link_to "Edit", edit_post_path(p) %>
-        <%= link_to "Delete", post_path(p), method: :delete, data: {confirm: "Are you sure?"} %>
-    <% end %>
-  </p>
-<% end %>
+<style>
+
+  h1{
+    font-size: 30px;
+    color: grey;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  table{
+    width:100%;
+    table-layout: fixed;
+  }
+  .tbl-header{
+    background-color: rgba(255,255,255,0.3);
+  }
+  .tbl-content{
+    height:400px;
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  th{
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    color: rgb(150,150,150);
+    text-transform: uppercase;
+  }
+  td{
+    padding: 15px;
+    text-align: left;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 19px;
+    color: grey;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+  }
+
+
+  /* demo styles */
+
+  @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+  body{
+    font-family: 'Roboto', sans-serif;
+  }
+  .table-section{
+    margin: 100px;
+  }
+
+
+
+
+  /* for custom scrollbar for webkit browser*/
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  }
+  ::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  }
+
+    .avatars {
+      border-radius: 100%;
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+    }
+
+
+    .ask-a-question {
+      border:none;
+      background: #e2583d;
+      color:white;
+      height: 40px;
+      cursor: pointer;
+    }
+</style>
+
+<%= render 'partials/nav2' %>
+
+<section class="table-section">
+  <!--for demo wrap-->
+  <span style="font-size:20px; transform: translateY(3px); display: inline-block;">Latest Questions</span>
+  <button onclick="window.location.href='/posts/new'" style=" margin-left: 30px;" class="ask-a-question">Ask A Question</button>
+
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+      <tr>
+        <th style="width:350px;">Topic</th>
+        <th style="width: 220px;">Users</th>
+        <th>Replies</th>
+        <th>Likes</th>
+        <th>Activity</th>
+      </tr>
+      </thead>
+
+    </table>
+
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+
+
+      <% @posts.each do |post| %>
+        <tr>
+          <td onclick="window.location.href='/posts/<%= post.id %>'" style="cursor: pointer; width: 350px;"><%= truncate(post.title, length: 100) %></td>
+          <td style="width: 220px;">
+            <% post.comments.limit(5).each do |comment| %>
+              <div onclick="window.location.href='/user/<%= comment.user.username %>'" style=" background: <% if comment.user.avatar? %> url(<%= comment.user.avatar.url(:medium) %>) <% else %> url(https://jira.xpand-addons.com/secure/useravatar?size=xsmall&avatarId=12316) <% end %> center center no-repeat; cursor: pointer; background-size: cover;" class="avatars"></div>
+            <% end %>
+          </td>
+          <td><%= post.comments.count %></td>
+          <td>1</td>
+          <td> <span class="time" style="font-size:12px; font-weight: bold;">asked</span> <span style="font-size:14px;"><%= Time.at((Time.now - post.created_at).round.abs).utc.strftime "%H:%M:%S" %></span> <span style="font-size:12px; font-weight: bold;">ago</span></td>
+        </tr>
+      <% end %>
+
+
+
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+
+
+<%= render 'partials/footer' %>
+
+<script>
+    // '.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
+    $(window).on("load resize ", function() {
+        var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+        $('.tbl-header').css({'padding-right':scrollWidth});
+    }).resize();
+
+
+</script>

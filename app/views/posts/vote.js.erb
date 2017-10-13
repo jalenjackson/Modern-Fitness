@@ -1,0 +1,19 @@
+<% if current_user.liked? @post %>
+
+$(".fa-heart").css({
+    color: "rgb(200,50,50)"
+});
+
+
+<% else %>
+
+$(".fa-heart").css({
+    color: "white"
+});
+
+
+
+<% end %>
+
+
+$(".likes-count").html("<%= @post.get_upvotes.size %>");

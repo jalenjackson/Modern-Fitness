@@ -119,7 +119,7 @@
     <img src="http://t.wallpaperweb.org/wallpaper/miscellaneous/1920x1080/amazingdigitalart1920x1080wallpaper1267.jpg" alt="orange tree" />
   </div>
 
-  <% @articles.each do |article| %>
+  <% @articles.limit(14).each do |article| %>
       <div class="grid__item grid__item--height3">
         <a href="/articles/<%= article.id %>">
           <div style="background:url(<%= article.cover.url(:medium) %>) center center no-repeat; background-size:cover;" class="article-img-container"></div>
@@ -144,23 +144,8 @@
 
 </div>
 
-<div class="start-selling-today">
-  <div class="start-selling-text">
-    <h1>Want To Make Some Money?</h1>
-    <button onclick="window.location.href='/startselling'">Start Selling Today!</button>
-  </div>
-</div>
+<p onclick="window.location.href='/articles'" style="text-align:center; font-size:14px; color:rgb(100,150,200); cursor: pointer;">All Articles</p>
 
-<div class="page-load-status">
-  <div class="loader-ellips infinite-scroll-request">
-    <span class="loader-ellips__dot"></span>
-    <span class="loader-ellips__dot"></span>
-    <span class="loader-ellips__dot"></span>
-    <span class="loader-ellips__dot"></span>
-  </div>
-  <p class="infinite-scroll-last">End of content</p>
-  <p class="infinite-scroll-error">No more pages to load</p>
-</div>
 
 
 <script>

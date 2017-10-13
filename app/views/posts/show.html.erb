@@ -1,15 +1,137 @@
-<h1>
+
+<style>
+
+  .post-info {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background:black;
+    z-index: 999999999999999;
+  }
+  .icons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background:rgb(51,51,51);
+    box-shadow: 0 2px 5px 1px rgba(#000, 0.2);
+    z-index: 999999999999999;
+  }
+
+  .article-submitter {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0;
+    margin: auto;
+    text-align: center;
+    width:auto;
+    pointer-events: none;
+
+  }
+
+  .icons p {
+    margin-left: 50px;
+    transform: translateY(19px) !important;
+    font-size:30px;
+    color:white;
+    font-weight: 100;
+  }
+
+  .fa-heart {
+    font-size:30px !important;
+    cursor: pointer;
+    z-index: 999999999999999999999;
+  }
+
+  .likes-count {
+    transform: translateY(-5px) !important;
+    display: inline-block;
+  }
+
+  .i-like {
+    margin-left: 10px !important;
+    display: inline-block;
+    transform: translate(-10px,-5px);
+    opacity: 0;
+  }
+
+  .question-container{
+    margin-left: 50px;
+    margin-top: 90px;
+  }
+
+    .post-title {
+
+    }
+    .question-avatar {
+      border-radius: 100%;
+      width: 60px;
+      height: 60px;
+      float:left;
+    }
+
+    input[type="submit"]{
+      border:none;
+      background:rgb(51,51,51);
+      color:white !important;
+      transform: translateY(-8px);
+    }
+</style>
+
+<%= render 'partials/nav2' %>
+
+<div class="question-container">
+<h1 style="margin-right: 100px;" class="post-title">
   <%= @post.title %>
 </h1>
-<p>
-  <%= @post.content %>
-</p>
+<hr/>
+
+
+<div class="icons">
+  <%= link_to like_post_path(@post), class: "like-btn", method: :put, remote: :true do  %>
+      <p class="heart"><span class="num-of-likes likes-count"><%= @post.get_upvotes.size %></span>
+
+
+        <i style="<% if current_user.liked? @post %> color:rgb(200,50,50); <% else %> color: white;  <% end %>" class="fa fa-heart"></i>
+
+      </p>
+  <% end %>
+  <p class="article-submitter"><%= @post.title %> <span style="font-size:13px;">asked by <%= @post.user.first_name + " " + @post.user.last_name %></span></p>
+</div>
+
+
+
+
+  <div style="margin-bottom: 90px;" class="bttom-content">
+
+
+<div class="question">
+
+
+  <div style="background: url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) center center no-repeat; background-size: cover;" class="question-avatar"></div>
+  <p style="transform: translateX(10px); font-weight: bold; color:grey; font-family: Roboto, sans-serif"><%= @post.user.first_name + " " + @post.user.last_name %></p>
+  <p style="transform: translateX(10px); margin-right: 100px;"><%= @post.content %></p>
+</div>
+
+  <br/>
 <div id="comments"></div>
 <h4>
-  <%= @post.comments.count %> comments
+  <%= @post.comments.count %> replies
 </h4>
 <%= render @post.comments %>
-<h3>Reply to thread</h3>
-<%= render 'comments/form' %>
-<%= link_to "Forum", posts_path %>
+<h3 style="font-size:14px;">Reply to the question</h3>
 
+
+  <%= form_for([@post, @post.comments.build]) do |f| %>
+      <%= f.text_area :comment, placeholder: "Give your response" %>
+      <%= f.submit "Reply" %>
+  <% end %>
+
+
+</div>
+
+</div>

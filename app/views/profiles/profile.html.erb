@@ -8,9 +8,9 @@
   <div style="
 
       <% if @user.header? %>
-  background: url(<%= @user.header.url(:medium) %>) center center no-repeat;
+          background: url(<%= @user.header.url(:medium) %>) center center no-repeat;
           <% else %>
-          background: url(http://www.barbaraparisi.com/x/images/1000x300/l1010523_2_1000x300.jpg) center center no-repeat;
+          background: url(https://ak3.picdn.net/shutterstock/videos/30182473/thumb/1.jpg) center center no-repeat;
           <% end %>
 
       background-size: 100% auto; margin-top: -12px!important;" class="profile-header">
@@ -24,16 +24,14 @@
       <div style="background: url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) center center no-repeat; background-size:cover;" class="profile-img-container"></div>
 <% end %>
 
-  <h1 class="profile-name" style="color:rgb(81,81,81);"><%= @user.first_name %> <%= @user.last_name %></h1>
-  <h1 style="font-size:12px !important;" class="profile-name">Member since <%= @user.created_at.strftime('%B/%d/%Y') %></h1>
-
-  <h1 <% if user_signed_in? && current_user.id == @user.id %> onclick="window.location.href='/friends'" <% else %> onclick="window.location.href='/user/<%= @user.username %>/friends'" <% end %>  style="font-size:12px !important; cursor: pointer; color:rgb(50,50,200); " class="profile-name">Followers <%= @user.followers.count %></h1>
-  <h1 <% if user_signed_in? && current_user.id == @user.id %> onclick="window.location.href='/friends'" <% else %> onclick="window.location.href='/user/<%= @user.username %>/friends'" <% end %> style="color:rgb(50,50,200); cursor: pointer; font-size:12px !important;" class="profile-name">Following <%= @user.following.count %></h1>
-
+  <div style="transform: translate(20px,35px);">
+    <h1 class="profile-name" style="color:rgb(81,81,81);"><%= @user.first_name %> <%= @user.last_name %></h1>
+    <h1 <% if user_signed_in? && current_user.id == @user.id %> onclick="window.location.href='/friends'" <% else %> onclick="window.location.href='/user/<%= @user.username %>/friends'" <% end %>  style="font-size:12px !important; font-family: Roboto, sans-serif; cursor: pointer; color:rgb(150,150,150); " class="profile-name">Followers <%= @user.followers.count %> <span style="margin-left: 10px;">Following <%= @user.following.count %></span></h1>
+  </div>
   <% if user_signed_in? %>
       <% if current_user.id == @user.id %>
           <a href="/users/edit"><button class="follow-btn">Edit Profile</button></a>
-          <a href="/friends"><button style="top: 150px !important; " class="follow-btn">Your Friends</button></a>
+          <a href="/friends"><button style="top: 100px !important; " class="follow-btn">Your Friends</button></a>
 <% end %>
   <% end %>
 
@@ -43,34 +41,60 @@
 
 </div>
 
-<h1 class="your-articles">Your Articles</h1>
-<!-- Top slider -->
-<% if @user.articles.present? %>
+<% if !@user.articles.present? && !@user.posts.present? %>
 
-    <div style="margin-top: 100px;" class="container profile-container2">
-      <div class="row">
-
-        <% @user.articles.each do |article| %>
-            <div style="cursor: pointer;"  class="col-md-5th-1 col-sm-4 profile-articles">
-              <div style=" <% if article.cover? %> background: url(<%= article.cover.url(:medium) %>) <% else %> background: url(http://images.all-free-download.com/images/graphiclarge/blurred_golden_background_192849.jpg) <% end %> center center no-repeat; background-size:cover;" class="profile-article-img"></div>
-              <h1><%= article.title %></h1>
-              <p><%= article.created_at.strftime('%B/%d/%Y') %></p>
-            </div>
-        <% end %>
-
-      </div>
-    </div>
-
+    <h1 style="font-size:14px; margin-top: 100px; margin-left: 100px;"><% if user_signed_in? && current_user.id == @user.id %> You don't have much activity. <span onclick="window.location.href='/articles/new'" style="color: rgb(100,150,200); cursor: pointer;">Write an article</span> or <span onclick="window.location.href='/posts/new'" style="color:rgb(100,150,200); cursor: pointer;">ask a fitness related question</span> <% else %> <%= @user.first_name %> doesn't have much activity <% end %></h1>
 
 <% else %>
-  <div class="no-articles">
-      <% if user_signed_in? && @user.id == current_user.id  %>
-      <h1 style="color:rgb(81,81,81);">You don't have any articles <i class="fa fa-frown-o" aria-hidden="true"></i></h1>
-      <% else %>
-        <h1><%= @user.first_name %> does not have any articles <i class="fa fa-frown-o" aria-hidden="true"></i></h1>
-      <% end %>
+<!-- Top slider -->
+  <% if @user.articles.present? %>
 
-  </div>
+      <div style="margin-top: 100px;" class="container profile-container2">
+        <h1 style="font-size:14px; text-align:center;">Articles</h1>
+        <div class="row">
+
+          <% @user.articles.limit(8).each do |article| %>
+
+              <% if user_signed_in? && current_user.id == @user.id || article.ispublished? %>
+              <div style="cursor: pointer; margin-top: 20px;"  class="col-md-5th-1 col-sm-4 profile-articles">
+                <div style=" <% if article.cover? %> background: url(<%= article.cover.url(:medium) %>) <% else %> background: url(http://images.all-free-download.com/images/graphiclarge/blurred_golden_background_192849.jpg) <% end %> center center no-repeat; background-size:cover;" class="profile-article-img"></div>
+                <h1><%= article.title %></h1>
+                <p><%= article.created_at.strftime('%B/%d/%Y') %></p>
+                <p style="color:rgb(200,50,50)"><% if !article.ispublished? %> Not Published Yet <% else %> <span style="color:rgb(50,200,50)">Published</span><% end %></p>
+              </div>
+              <% else %>
+                <h1 style="font-size: 14px; text-align:center;"><%= @user.first_name %> is working on article's but didn't publish yet</h1>
+              <% end %>
+
+          <% end %>
+
+        </div>
+      </div>
+
+      <p class="all-articles" style="text-align:center; margin-top: 30px; color:rgb(100,150,200); cursor: pointer;">All Articles</p>
+
+  <% end %>
+
+  <% if @user.posts.present? %>
+
+      <div style="margin-top: 100px;" class="container profile-container2">
+        <h1 style="font-size:14px; text-align:center;">Question's Asked</h1>
+        <div class="row">
+
+          <% @user.posts.limit(8).each do |post| %>
+              <div style="cursor: pointer; margin-top: 20px;"  class="col-md-5th-1 col-sm-4 profile-articles">
+                <h1><%= post.title %></h1>
+                <p>replies <%= post.comments.count %></p>
+              </div>
+          <% end %>
+
+        </div>
+      </div>
+
+      <p style="text-align:center; margin-top: 30px; color:rgb(100,150,200); cursor: pointer;">All Questions</p>
+
+  <% end %>
+
 <% end %>
 
 <%= render 'partials/footer' %>
