@@ -187,7 +187,7 @@
             <% end %>
           </td>
           <td><%= post.comments.count %></td>
-          <td>1</td>
+          <td><%= post.get_upvotes.size %></td>
           <td> <span class="time" style="font-size:12px; font-weight: bold;">asked</span> <span style="font-size:14px;"><%= Time.at((Time.now - post.created_at).round.abs).utc.strftime "%H:%M:%S" %></span> <span style="font-size:12px; font-weight: bold;">ago</span></td>
         </tr>
       <% end %>
@@ -213,7 +213,7 @@
         <% end %>
       </div>
       <p>Replies: <%= post.comments.count %></p>
-      <p>Likes: 1</p>
+      <p>Likes: <%= post.get_upvotes.size %></p>
       <p style="padding-bottom: 30px;"> <span class="time" style=" font-size:12px; font-weight: bold;">asked by <%= truncate(post.user.first_name + " " + post.user.last_name, length: 100) %></span> <span style="font-size:14px;"><%= Time.at((Time.now - post.created_at).round.abs).utc.strftime "%H:%M:%S" %></span> <span style="font-size:12px; font-weight: bold;">ago</span></p>
     </div>
 
