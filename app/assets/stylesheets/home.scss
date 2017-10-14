@@ -198,6 +198,9 @@ a{
 .add-height {
   height: 260px;
 }
+.add-height2 {
+  height: 300px;
+}
 
 
 .mobile-title {
@@ -464,11 +467,24 @@ a:hover
 
 }
 
+.new-post {
+  box-shadow: 0 2px 5px 1px rgba(#000, 0.2);
+
+}
+
+#error_explanation {
+  pointer-events: none !important;
+}
 .start-selling-text {
   transform: translateY(120px);
 }
 
 .columns6 {
+  box-shadow: 0 2px 5px 1px rgba(#000, 0.2);
+
+}
+
+.mobile-table {
   box-shadow: 0 2px 5px 1px rgba(#000, 0.2);
 
 }
@@ -510,14 +526,17 @@ a:hover
 
 @keyframes bye_errors {
   0%{
+    display: block;
     opacity: 1;
   }
   90%{
+    display: block;
     opacity: 1;
   }
   100%{
     opacity:0
   }
+
 }
 
 #error_explanation h2 {

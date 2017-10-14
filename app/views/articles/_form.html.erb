@@ -1,3 +1,68 @@
+
+
+<style>
+  @media only screen and (max-width: 1200px) {
+
+  }
+
+  @media only screen and (max-width: 600px) {
+    .material-textfield label::before, .material-textfield .new-title:focus ~ label::before {
+      font-size: 12px;
+      top: -8.7rem;
+      font-weight: 900 !important;
+
+    }
+    .material-textfield input:focus ~ label::after {
+      left: 0%;
+      width: 100%;
+      font-weight: 900 !important;
+      color:white;
+
+
+    }
+
+    .material-textfield {
+      margin: 0 !important;
+      text-align:left !important;
+      margin-left: 0px !important;
+    }
+    .material-textfield input:invalid ~ label::before {
+      font-size: 10px;
+      top: -4rem;
+      font-weight: 900 !important;
+      color:white;
+      text-align:left !important;
+      margin: 0 !important;
+      left: 0 !important;
+
+
+    }
+
+    .title-input {
+      width: 70% !important;
+
+    }
+  }
+
+
+  @media only screen and (max-width: 600px){
+
+  }
+
+  @media only screen and (max-width: 400px) {
+
+
+  }
+
+  @media only screen and (max-width: 350px) {
+    .title-input {
+      width: 50% !important;
+    }
+
+  }
+</style>
+
+
 <div class="new-article">
 
 <%= form_with(model: @article, local: true) do |form| %>
@@ -18,7 +83,7 @@
       <div class="wrapper">
         <div class="material-textfield blue">
           <%= form.text_field :title , :required => true, class: "title-input" %>
-          <label data-content="What Are We Going To Name This Article?"></label>
+          <label class="label-text" data-content="What Are We Going To Name This Article?"></label>
         </div>
       </div>
     </div>

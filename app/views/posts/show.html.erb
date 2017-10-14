@@ -80,6 +80,10 @@
       color:white !important;
       transform: translateY(-8px);
     }
+
+    .icons {
+      z-index: 999999999999999999999999999;
+    }
 </style>
 
 <%= render 'partials/nav2' %>
@@ -104,7 +108,7 @@
 
       </p>
   <% end %>
-  <p style="transform: translateY(13px) !important;" class="article-submitter"><%= truncate(@post.title, length: 100) %> <span style="font-size:13px;">asked by <%= @post.user.first_name + " " + @post.user.last_name %></span></p>
+  <p style="transform: translateY(13px) !important;" class="article-submitter"><%= truncate(@post.title, length: 100) %> <span style="font-size:13px;">asked by <%= truncate(@post.user.first_name + " " + @post.user.last_name, length: 50) %></span></p>
 </div>
 
 

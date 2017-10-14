@@ -430,6 +430,57 @@
       color:white !important;
     }
 
+  @media only screen and (max-width: 1200px) {
+    .container {
+      margin: 0 !important;
+      width: 100% !important;
+    }
+
+    .col-md-5th-1 {
+      width: 100% !important;
+      display: block;
+      margin: 0 auto !important;
+      border: 1px solid lightgrey !important;
+      border-radius: none !important;
+      margin-top: 20px !important;
+    }
+
+  }
+
+  @media only screen and (max-width: 900px) {
+
+    .col-md-5th-1 {
+      width: 100% !important;
+    }
+  }
+
+
+  @media only screen and (max-width: 600px){
+
+  }
+
+  @media only screen and (max-width: 400px) {
+
+
+  }
+
+  @media only screen and (max-width: 350px) {
+
+  }
+
+    .container {
+      margin: 0 !important;
+      width: 100% !important;
+    }
+
+    .col-md-5th-1 {
+      display: block;
+      margin: 0 auto !important;
+      box-shadow: none !important;
+    }
+
+
+
 </style>
 
 
@@ -437,12 +488,13 @@
 
 
 
+<h1 style="text-align:center; font-size:14px;margin-top: 150px;">All Users</h1>
 <div style="margin-top: 100px;" class="container">
   <div class="row">
 
     <% @users.each do |user| %>
         <% if !user_signed_in? || user.id != current_user.id    %>
-      <div style="cursor: pointer;" onclick="window.location.href='/user/<%= user.username %>'" class="col-md-5th-1 col-sm-4">
+      <div style="cursor: pointer; margin-top: 20px;" onclick="window.location.href='/user/<%= user.username %>'" class="col-md-5th-1 col-sm-4">
         <div style="background: <% if user.avatar? %> url(<%= user.avatar.url(:medium) %>) <% else %> url(https://www.w3schools.com/css/trolltunga.jpg) <% end %> center center no-repeat; background-size:cover;" class="avatar"></div>
         <h1><%= user.first_name + " " + user.last_name %></h1>
         <p style="font-size:13px;">User since <%= user.created_at.strftime('%B/%d/%Y') %></p>

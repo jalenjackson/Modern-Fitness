@@ -7,6 +7,8 @@ class Article < ApplicationRecord
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\z/
 
   validates :title, presence: true
+  validates :cover, presence: true
+
 
 
 end

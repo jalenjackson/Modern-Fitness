@@ -2,6 +2,77 @@
   .bottom-footer {
     margin-top: 20px !important;
   }
+
+
+
+  @media only screen and (max-width: 1200px) {
+      .sign-up-img {
+        width: 100% !important;
+        position: relative !important;
+      }
+
+    form {
+      width: 100% !important;
+      margin:0  !important;
+      transform: translateY(90px) !important;
+      margin-bottom: 50px !important;
+    }
+
+    form input {
+      display: block !important;
+      margin: 0 auto !important;
+
+      margin-top: 10px !important;
+    }
+
+    .sign-up-form {
+      position: relative !important;
+      background:red !important;
+    }
+    em {
+      text-align: center !important;
+      display: block;
+      margin: 0 auto;
+    }
+
+    input[type="submit"]{
+      margin-bottom: 60px;
+    }
+    #error_explanation {
+      position: relative !important;
+      animation: none !important;
+      z-index: 1 !important;
+    }
+
+    .were-glad {
+      text-align:center;
+      margin: 0 !important;
+    }
+
+    .bottom-footer {
+      display: none !important;
+    }
+  }
+
+
+
+  @media only screen and (max-width: 900px) {
+
+  }
+
+
+  @media only screen and (max-width: 600px){
+
+  }
+
+  @media only screen and (max-width: 400px) {
+
+
+  }
+
+  @media only screen and (max-width: 350px) {
+
+  }
 </style>
 
 <%= render 'partials/nav2' %>
@@ -9,7 +80,10 @@
 
 
 <div style="margin-top:-20px; background:white !important;" class="sign-up-form">
-<h2 style="color:grey;margin-left: 30px; margin-bottom: 100px; transform: translateY(70px)">We're Glad You're Interested!</h2>
+  <div class="sign-up-img">
+    <h1 style="color:white;">Discover <br/> Modern Fitness</h1>
+  </div>
+<h2 class="were-glad" style="color:grey;margin-left: 30px; margin-bottom: 100px; transform: translateY(70px)">We're Glad You're Interested!</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "sign-up-form-form"})  do |f| %>
   <%= devise_error_messages! %>
@@ -55,10 +129,9 @@
   </label>
 <% end %>
 
-<div class="sign-up-img">
-  <h1 style="color:white;">Discover <br/> Modern Fitness</h1>
+
 </div>
-</div>
+
 <%= render 'partials/footer' %>
 
 <script>

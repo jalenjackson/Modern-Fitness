@@ -1,3 +1,60 @@
+<style>
+
+  @media only screen and (max-width: 1200px) {
+
+    .profile-articles {
+      width: 100% !important;
+      margin: 0 !important;
+      margin-top: 40px !important;
+    }
+
+    .profile-container2 {
+      text-align:center !important;
+    }
+
+    .is-published {
+      padding-bottom: 20px !important;
+    }
+
+    .follow-btn {
+      position: relative !important;
+      margin: 0 !important;
+      left: 0 !important;
+      float:left !important;
+    }
+
+    .friends {
+      display: none !important;
+    }
+
+    .profile-img-container {
+      margin: 0 !important;
+      text-align:left !important;
+      transform: translate(0,0) !important;
+    }
+
+  }
+
+  @media only screen and (max-width: 900px) {
+
+  }
+
+
+  @media only screen and (max-width: 600px){
+
+  }
+
+  @media only screen and (max-width: 400px) {
+
+
+  }
+
+  @media only screen and (max-width: 350px) {
+
+  }
+</style>
+
+
 <% content_for :head do %>
     <meta name="turbolinks-cache-control" content="no-cache">
 <% end %>
@@ -31,7 +88,7 @@
   <% if user_signed_in? %>
       <% if current_user.id == @user.id %>
           <a href="/users/edit"><button class="follow-btn">Edit Profile</button></a>
-          <a href="/friends"><button style="top: 100px !important; " class="follow-btn">Your Friends</button></a>
+          <a href="/friends"><button style="top: 100px !important; " class="follow-btn friends">Your Friends</button></a>
 <% end %>
   <% end %>
 
@@ -60,7 +117,7 @@
                 <div style=" <% if article.cover? %> background: url(<%= article.cover.url(:medium) %>) <% else %> background: url(http://images.all-free-download.com/images/graphiclarge/blurred_golden_background_192849.jpg) <% end %> center center no-repeat; background-size:cover;" class="profile-article-img"></div>
                 <h1><%= article.title %></h1>
                 <p><%= article.created_at.strftime('%B/%d/%Y') %></p>
-                <p style="color:rgb(200,50,50)"><% if !article.ispublished? %> Not Published Yet <% else %> <span style="color:rgb(50,200,50)">Published</span><% end %></p>
+                <p class="is-published" style="color:rgb(200,50,50)"><% if !article.ispublished? %> Not Published Yet <% else %> <span style="color:rgb(50,200,50)">Published</span><% end %></p>
               </div>
               <% else %>
                 <h1 style="font-size: 14px; text-align:center;"><%= @user.first_name %> is working on article's but didn't publish yet</h1>

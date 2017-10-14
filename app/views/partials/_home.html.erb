@@ -99,6 +99,10 @@
       color:rgb(200,50,50);
     }
 
+    a:hover {
+      color:rgb(100,150,200) !important;
+    }
+
 
 </style>
 
@@ -147,10 +151,11 @@
 
         <div class="panel-body">
           <ul class="list-unstyled">
-            <% @posts.limit(40).each do |post| %>
+            <% @posts.limit(20).each do |post| %>
               <li><a href="posts/<%= post.id %>"><%= truncate(post.title, length:100) %></a></li>
                 <hr/>
             <% end %>
+            <p style="color:rgb(100,150,200); cursor: pointer;" onclick="window.location.href='/posts'">See All Questions</p>
           </ul>
         </div>
       </div>
@@ -163,7 +168,6 @@
             <div class="media-body">
               <div class="form-group has-feedback">
                 <label class="control-label sr-only" for="inputSuccess5">Hidden label</label>
-                <input placeholder="Search Articles" type="text" class="form-control" id="search2" aria-describedby="search">
                 <span id="search2" class="sr-only">(success)</span>
               </div>
             </div>
@@ -173,6 +177,7 @@
 
           <% @articles.limit(14).each do |article| %>
 
+              <% if article.ispublished? %>
           <div  class="media">
             <a class="media-left" href="#fake">
               <div style="background: <% if article.user.avatar? %> url(<%= article.user.avatar.url(:medium) %>) <% else %> url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) <% end %> center center no-repeat; background-size:cover; " class="media-object img-rounded avatar"></div>
@@ -190,6 +195,7 @@
           </div>
 
               <hr class="hr"/>
+              <% end %>
               <% end %>
 
         </div>
@@ -211,7 +217,7 @@
       <div class="panel panel-default panel-custom">
         <div class="panel-heading">
           <h3 style="transform: translateY(-9px)" class="panel-title">
-            Who to follow
+            Friends To Follow
             <small><a href="/">Refresh</a> ● <a href="/community">View all</a></small>
           </h3>
         </div>
@@ -219,7 +225,7 @@
 
 
           <% @users.limit(7).each do |user| %>
-              <% if user_signed_in? && current_user.id != user.id %>
+              <% if user_signed_in? && current_user.id != user.id && !current_user.following?(user) %>
 
         <div class="media">
               <div class="media-left">
@@ -228,9 +234,7 @@
               <div class="media-body">
                 <h4 class="media-heading"><%= user.first_name + " " + user.last_name %></h4>
 
-                <a href="#" class="btn btn-default btn-xs">
-                  +
-                  <span class="glyphicon glyphicon-user"></span>
+
 
                   <% if user_signed_in? %>
                       <% if current_user.id != user.id %>
@@ -249,7 +253,9 @@
                 </a>
               </div>
             </div>
-          <% end %>
+                  <hr/>
+
+        <% end %>
               <% end %>
 
 

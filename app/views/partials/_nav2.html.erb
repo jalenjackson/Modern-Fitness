@@ -1,24 +1,71 @@
-<div class="navbar2">
+<style>
+
+  @media only screen and (max-width: 1200px) {
+
+    .navbar2 a {
+      display: none;
+    }
+    .fa-search {
+      display: none;
+    }
+    .fa-bars {
+      display: block;
+      color:white !important;
+      font-size:30px !important;
+      margin: 0 auto;
+      margin-top:3px;
+    }
+
+
+    .mobile-title {
+      display: block;
+    }
+
+    .navbar2 {
+      background:black;
+      text-align:center !important;
+      position: relative !important;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+
+  }
+
+
+  @media only screen and (max-width: 600px){
+
+  }
+
+  @media only screen and (max-width: 400px) {
+
+
+  }
+
+  @media only screen and (max-width: 350px) {
+
+  }
+</style>
+
+
+<div style="background:black !important; " class="navbar2">
+
+  <h1 style="cursor: pointer;" onclick="window.location.href='/'" class="mobile-title">Modern Fitness</h1>
+  <i class="fa fa-bars"></i>
 
   <div class="left-nav2-container">
     <a href="/" class="nav2-name">Modern Fitness</a>
-    <a>Training</a>
-    <a>Reviews</a>
-    <a>Forum</a>
-    <a>Nutrition</a>
+    <a href="/articles">Articles</a>
+    <a href="/posts">Forum</a>
     <a href="/community">Community</a>
-    <a>Events</a>
-    <a href="/products/">Shop</a>
   </div>
 
   <div class="right-nav2-container">
-    <i class="fa fa-search"></i>
     <% if user_signed_in? %>
         <a href="/articles/new">Write An Article</a>
-        <a href="/startselling">Sell</a>
+        <a href="/posts/new">Ask A Question</a>
         <a href="/friends">Friends</a>
         <a href="/user/<%= current_user.username %>"><%= current_user.first_name %> <i class="fa fa-user" aria-hidden="true"></i></a>
-        <a href="/account">Account <i class="fa fa-credit-card" aria-hidden="true"></i></a>
         <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
     <% else %>
         <%= link_to "Sign up", new_user_registration_path  %>
@@ -27,3 +74,21 @@
   </div>
 
 </div>
+
+
+
+<div  class="mobile-dropdown">
+  <ul style="margin-top: 40px;">
+    <li onclick="window.location.href='/users/sign_in'">Log In</li>
+    <li onclick="window.location.href='/users/sign_up'">Sign Up</li>
+    <li onclick="window.location.href='/posts'">Forum</li>
+    <li onclick="window.location.href='/products'">Shop</li>
+    <li onclick="window.location.href='/community'">Community</li>
+  </ul>
+</div>
+
+<script>
+    $(".fa-bars").click(function(){
+        $(".mobile-dropdown").toggleClass("add-height2");
+    });
+</script>

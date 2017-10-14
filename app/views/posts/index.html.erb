@@ -21,6 +21,8 @@
     margin-top: 0px;
     border: 1px solid rgba(255,255,255,0.3);
   }
+  
+
   th{
     padding: 20px 15px;
     text-align: left;
@@ -80,6 +82,73 @@
       height: 40px;
       cursor: pointer;
     }
+
+  .table-section {
+    width: 100% !important;
+    margin: 0 !important;
+    margin-left: 30px !important;
+    margin-right: 30px !important;
+    margin-top: 100px !important;
+  }
+
+
+  @media only screen and (max-width: 1200px) {
+
+    .mobile-section {
+      display: block !important;
+    }
+
+    .table-section {
+      display: none !important;
+    }
+
+  }
+
+  @media only screen and (max-width: 900px) {
+
+  }
+
+
+  @media only screen and (max-width: 600px){
+
+    .ask-a-question {
+      display: block;
+      margin:  0 auto !important;
+    }
+
+
+  }
+
+  @media only screen and (max-width: 400px) {
+
+
+  }
+
+  @media only screen and (max-width: 350px) {
+
+  }
+
+    .mobile-table {
+      text-align:center;
+      margin-left: 30px;
+      margin-right: 30px;
+
+      white-space: normal;
+      border-radius: .3em;
+      display: block;
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+
+    .mobile-table h1 {
+      font-size:17px !important;
+    }
+
+    .mobile-section {
+      display: none;
+      margin-top: 50px !important;
+    }
 </style>
 
 <%= render 'partials/nav2' %>
@@ -131,6 +200,26 @@
 </section>
 
 
+<div class="mobile-section">
+  <button onclick="window.location.href='/posts/new'" style=" margin-left: 30px;" class="ask-a-question">Ask A Question</button>
+
+  <% @posts.each do |post| %>
+
+    <div class="mobile-table">
+      <h1  onclick="window.location.href='/posts/<%= post.id %>'" style="cursor: pointer;  color:rgb(100,150,200);   padding-bottom:10px; padding-top: 10px; text-align:center !important; display: block;margin: 0 auto !important;"><%= truncate(post.title, length: 100) %></h1>
+      <div style="padding-bottom: 20px;">
+        <% post.comments.limit(5).each do |comment| %>
+            <div onclick="window.location.href='/user/<%= comment.user.username %>'" style=" display: inline-block; margin: 0 auto; background: <% if comment.user.avatar? %> url(<%= comment.user.avatar.url(:medium) %>) <% else %> url(https://jira.xpand-addons.com/secure/useravatar?size=xsmall&avatarId=12316) <% end %> center center no-repeat; cursor: pointer; background-size: cover;" class="avatars"></div>
+        <% end %>
+      </div>
+      <p>Replies: <%= post.comments.count %></p>
+      <p>Likes: 1</p>
+      <p style="padding-bottom: 30px;"> <span class="time" style=" font-size:12px; font-weight: bold;">asked by <%= truncate(post.user.first_name + " " + post.user.last_name, length: 100) %></span> <span style="font-size:14px;"><%= Time.at((Time.now - post.created_at).round.abs).utc.strftime "%H:%M:%S" %></span> <span style="font-size:12px; font-weight: bold;">ago</span></p>
+    </div>
+
+<% end %>
+
+</div>
 
 
 <%= render 'partials/footer' %>

@@ -1,8 +1,94 @@
+
+
+<style>
+  @media only screen and (max-width: 1200px) {
+    .sign-up-img {
+      width: 100% !important;
+      position: relative !important;
+    }
+
+    form {
+      width: 100% !important;
+      margin:0  !important;
+      transform: translateY(50px) !important;
+      margin-bottom: 100px !important;
+
+    }
+
+    form input {
+      display: block !important;
+      margin: 0 auto !important;
+
+      margin-top: 10px !important;
+    }
+
+    .sign-up-form {
+      position: relative !important;
+      background:red !important;
+    }
+
+
+    input[type="submit"]{
+      margin-bottom: 60px;
+    }
+    #error_explanation {
+      position: relative !important;
+      animation: none !important;
+      z-index: 1 !important;
+    }
+
+    .were-glad {
+      text-align:center;
+      margin: 0 !important;
+    }
+
+    .bottom-footer {
+      display: none !important;
+    }
+    .login-text {
+      text-align:center !important;
+      margin: 0 !important;
+
+    }
+
+    em {
+      display: block !important;
+      margin: 0 auto !important;
+      text-align: center  !important;
+    }
+    .glad {
+      font-size:40px !important;
+    }
+  }
+
+
+
+  @media only screen and (max-width: 900px) {
+
+  }
+
+
+  @media only screen and (max-width: 600px){
+
+  }
+
+  @media only screen and (max-width: 400px) {
+
+
+  }
+
+  @media only screen and (max-width: 350px) {
+
+  }
+</style>
+
 <%= render 'partials/nav2' %>
 
 <div style="background:white !important;" class="sign-in-form">
-
-<h2 style="color:grey;margin-left:70px;transform: translateY(90px);margin-bottom:70px;">Log in</h2>
+  <div style="background: url(http://eskipaper.com/images/fitness-wallpaper-hd-1.jpg) center center no-repeat; background-size:cover;" class="sign-up-img">
+    <h1 class="glad" style="color:white;">Glad To Have You Back</h1>
+  </div>
+<h2 class="login-text" style="color:grey;margin-left:70px;transform: translateY(90px);margin-bottom:70px;">Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => "sign-up-form-form"}) do |f| %>
 
@@ -18,22 +104,13 @@
     </label>
 
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
     <label>
       <%= f.submit "Log In" %>
     </label>
 
 <% end %>
   </div>
-<div style="background: url(http://eskipaper.com/images/fitness-wallpaper-hd-1.jpg) center center no-repeat; background-size:cover;" class="sign-up-img">
-  <h1 style="color:white;">Glad To Have You Back</h1>
-</div>
+
 
 </div>
 

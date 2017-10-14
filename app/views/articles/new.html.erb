@@ -2,11 +2,8 @@
 <%= render 'partials/nav2' %>
 
 <div class="new-article-page">
-  <% if user_signed_in? %>
 
       <%= render 'form', article: @article %>
-
-  <% end %>
 
 </div>
 
@@ -19,4 +16,7 @@
   $(".main-navbar").css({
       position: "fixed"
   });
+
+  $("#error_explanation h2").html("Please resolve the errors below");
+
 </script>

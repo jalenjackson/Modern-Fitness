@@ -118,6 +118,7 @@
 
 
   <% @articles.limit(14).each do |article| %>
+      <% if article.ispublished? %>
       <div  class="grid__item grid__item--height3">
         <a href="/articles/<%= article.id %>">
           <div style="background:url(<%= article.cover.url(:medium) %>) center center no-repeat; background-size:cover;" class="article-img-container"></div>
@@ -136,6 +137,7 @@
           <h1 style="cursor: pointer;" onclick="window.location.href='/articles/<%= article.id %>/likes'"><span style="color:rgb(100,150,200)"><%= article.get_upvotes.size %></span> <i style="color:red;" class="fa fa-heart"></i></h1>
       </div>
   <% end %>
+      <% end %>
 
 
 
