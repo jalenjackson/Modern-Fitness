@@ -479,6 +479,28 @@
       box-shadow: none !important;
     }
 
+  .pagination {
+    display: block;
+    margin: 0 auto !important;
+    text-align:center;
+    margin-top: 30px !important;
+  }
+  .current {
+    font-weight: bold;
+    font-size: 21px;
+    font-style: normal;
+  }
+
+  .pagination a {
+    color:grey;
+    font-size:16px;
+    margin-left: 5px;
+  }
+
+  .pagination a:hover {
+    color:grey !important;
+  }
+
 
 
 </style>
@@ -488,14 +510,14 @@
 
 
 
-<h1 style="text-align:center; font-size:14px;margin-top: 150px;">All Users</h1>
+<h1 style="text-align:center; font-size:23px;margin-top: 150px;">All Users</h1>
 <div style="margin-top: 100px;" class="container">
   <div class="row">
 
     <% @users.each do |user| %>
         <% if !user_signed_in? || user.id != current_user.id    %>
       <div style="cursor: pointer; margin-top: 20px;" onclick="window.location.href='/user/<%= user.username %>'" class="col-md-5th-1 col-sm-4">
-        <div style="background: <% if user.avatar? %> url(<%= user.avatar.url(:medium) %>) <% else %> url(https://www.w3schools.com/css/trolltunga.jpg) <% end %> center center no-repeat; background-size:cover;" class="avatar"></div>
+        <div style="background: <% if user.avatar? %> url(<%= user.avatar.url(:medium) %>) <% else %> url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) <% end %> center center no-repeat; background-size:cover;" class="avatar"></div>
         <h1><%= user.first_name + " " + user.last_name %></h1>
         <p style="font-size:13px;">User since <%= user.created_at.strftime('%B/%d/%Y') %></p>
         <% if user_signed_in? %>
@@ -520,7 +542,7 @@
 </div>
 
 
-
+<%= will_paginate @users %>
 
 <%= render 'partials/footer' %>
 

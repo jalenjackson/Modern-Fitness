@@ -124,7 +124,7 @@
   <div class="grid__gutter-sizer"></div>
 
 
-  <% @articles.limit(14).each do |article| %>
+  <% @articles.each do |article| %>
       <% if article.ispublished? %>
       <div  class="grid__item grid__item--height3">
         <a href="/articles/<%= article.id %>">

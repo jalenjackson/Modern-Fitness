@@ -1,3 +1,56 @@
+
+<style>
+  @media only screen and (max-width: 1200px) {
+    .container {
+      margin: 0 !important;
+      width: 100% !important;
+    }
+
+    .col-md-5th-1 {
+      width: 100% !important;
+      display: block;
+      margin: 0 auto !important;
+      border: 1px solid lightgrey !important;
+      border-radius: none !important;
+      margin-top: 20px !important;
+    }
+
+  }
+
+  @media only screen and (max-width: 900px) {
+
+    .col-md-5th-1 {
+      width: 100% !important;
+    }
+  }
+
+    .col-md-5th-1 {
+      margin-top: 20px;
+    }
+
+  .pagination {
+    display: block;
+    margin: 0 auto !important;
+    text-align:center;
+    margin-top: 30px !important;
+  }
+  .current {
+    font-weight: bold;
+    font-size: 21px;
+    font-style: normal;
+  }
+
+  .pagination a {
+    color:grey;
+    font-size:16px;
+    margin-left: 5px;
+  }
+
+  .pagination a:hover {
+    color:grey !important;
+  }
+</style>
+
 <%= render 'partials/nav2' %>
 
 
@@ -11,7 +64,7 @@
     <div style="margin-top: 100px;" class="container profile-container2">
       <div class="row">
 
-        <% @user.articles.each do |article| %>
+        <% @articles.each do |article| %>
             <div style="cursor: pointer;"  class="col-md-5th-1 col-sm-4 profile-articles">
               <div style=" <% if article.cover? %> background: url(<%= article.cover.url(:medium) %>) <% else %> background: url(http://images.all-free-download.com/images/graphiclarge/blurred_golden_background_192849.jpg) <% end %> center center no-repeat; background-size:cover;" class="profile-article-img"></div>
               <h1><%= article.title %></h1>
@@ -35,4 +88,5 @@
 <% end %>
 
 
+<%= will_paginate @articles %>
 <%= render 'partials/footer' %>

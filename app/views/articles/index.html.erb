@@ -94,12 +94,105 @@
     font-size: 23px !important;
     margin-top: 100px !important;
   }
+
+
+  @media only screen and (max-width: 1200px) {
+
+  }
+
+  @media only screen and (max-width: 900px) {
+
+    .grid__item {
+      width: 1o0% !important;
+      margin: 0 !important;
+      margin-top: 50px !important;
+
+    }
+
+    .grid {
+      margin: 0 !important;
+      display: block;
+      text-align:center;
+      width: 100% !important;
+    }
+
+  }
+
+
+  @media only screen and (max-width: 600px){
+
+  }
+
+  @media only screen and (max-width: 400px) {
+
+
+  }
+
+  @media only screen and (max-width: 350px) {
+
+  }
+
+  .loader {
+    width: 200px;
+    height: 200px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-radius: 100%;
+    animation: loader 300ms ease-in-out forwards infinite;
+    box-shadow:0 0 8px black, inset 0 0 8px black;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    text-align:center;
+    transition: all 400ms ease-in-out;
+  }
+
+  .loader p {
+    position: absolute;
+    color:grey;
+    text-transform: uppercase;
+    font-size:12px;
+  }
+
+  @keyframes loader {
+    0%{
+     transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+  .pagination {
+    display: block;
+    margin: 0 auto !important;
+    text-align:center;
+    margin-top: 30px !important;
+    opacity: 0;
+  }
+  .current {
+    font-weight: bold;
+    font-size: 21px;
+    font-style: normal;
+  }
+
+  .pagination a {
+    color:grey;
+    font-size:16px;
+    margin-left: 5px;
+  }
+
+  .pagination a:hover {
+    color:grey !important;
+  }
   /* loader ellips in separate pen CSS */
 
 </style>
 
 <%= render 'partials/nav2' %>
 <h1 class="all-articles">All Articles</h1>
+
+<div class="loader">
+</div>
 
 <div style=" margin-right: 50px !important; width: 90%; margin-left: 50px;" class="grid are-images-unloaded">
   <div class="grid__col-sizer"></div>
@@ -114,7 +207,7 @@
       </a>
       <% if !article.cover? %>
           <a href="/articles/<%= article.id %>">
-          <h1 style="font-size:40px;"><%= article.title.truncate_words(6) %></h1>
+          <h1 style="font-size:40px;"><%=  truncate(article.title, length: 100) %></h1>
           </a>
       <% else %>
           <a href="/articles/<%= article.id %>">
@@ -136,14 +229,23 @@
 
 </div>
 
+<%= will_paginate @articles %>
 
 
 <%= render 'partials/footer' %>
+
 
 <script>
     //
     //-------------------------------------//
 
+    $(window).on("load", function(){
+       $(".loader").css({opacity: "0"});
+       $(".pagination").css({opacity: "1"})
+       setTimeout(function(){
+           $(".loader").css({display: "none"});
+       },420)
+    });
     $(document).on("turbolinks:load")
     {
         // init Masonry

@@ -1,7 +1,7 @@
 <div class="six-columns">
 
   <div style="transform:translateY(30px)">
-    <% @posts.limit(6).each do |post| %>
+    <% @posts.each do |post| %>
       <div  onclick="window.location.href='/posts/<%= post.id %>'" style="position: relative; cursor: pointer;" class="columns6">
 
         <div class="inside-six" style="position:absolute;  width: 100%; height: 100%;">

@@ -24,6 +24,9 @@ gem 'paperclip'
 
 gem 'aws-sdk'
 
+gem 'will_paginate', '~> 3.1.0'
+
+
 gem "jquery-slick-rails"
 
 gem 'masonry-rails'

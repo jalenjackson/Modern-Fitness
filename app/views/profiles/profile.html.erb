@@ -128,7 +128,7 @@
         </div>
       </div>
 
-      <p onclick="window.location.href=''" class="all-articles" style="text-align:center; margin-top: 30px; color:rgb(100,150,200); cursor: pointer;">All Articles</p>
+      <p onclick="window.location.href='/user/<%= @user.username %>/articles'" class="all-articles" style="text-align:center; margin-top: 30px; color:rgb(100,150,200); cursor: pointer;">All Articles</p>
 
   <% end %>
 
@@ -149,7 +149,7 @@
         </div>
       </div>
 
-      <p onclick="window.location.href='/'" style="text-align:center; margin-top: 30px; color:rgb(100,150,200); cursor: pointer;">All Questions</p>
+      <p onclick="window.location.href='/user/<%= @user.username %>/questions'" style="text-align:center; margin-top: 30px; color:rgb(100,150,200); cursor: pointer;">All Questions</p>
 
   <% end %>
 
