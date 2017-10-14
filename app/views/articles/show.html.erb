@@ -60,6 +60,32 @@
     }
 
 
+  @media only screen and (max-width: 1200px) {
+
+   .article-header-h1 {
+     font-size: 20px !important;
+   }
+  }
+
+  @media only screen and (max-width: 900px) {
+
+  }
+
+
+  @media only screen and (max-width: 600px){
+
+  }
+
+  @media only screen and (max-width: 400px) {
+
+
+  }
+
+  @media only screen and (max-width: 350px) {
+
+  }
+
+
 
     @keyframes show {
       0%{
@@ -99,7 +125,7 @@
     }
 </style>
 <div style=" background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= @article.cover.url(:large) %>) center center no-repeat; background-size: cover" class="image-header">
-  <h1><%= @article.title %></h1>
+  <h1 class="article-header-h1" style="margin-left: 30px;margin-right: 30px; width: 90%;"><%= truncate(@article.title, length: 100) %></h1>
   <% if user_signed_in? %>
       <% if user_signed_in? && current_user.id == @article.user.id %>
        <% if @article.ispublished? == false %>
