@@ -114,8 +114,8 @@
 
               <% if user_signed_in? && current_user.id == @user.id || article.ispublished? %>
               <div style="cursor: pointer; margin-top: 20px;"  class="col-md-5th-1 col-sm-4 profile-articles">
-                <div style=" <% if article.cover? %> background: url(<%= article.cover.url(:medium) %>) <% else %> background: url(http://images.all-free-download.com/images/graphiclarge/blurred_golden_background_192849.jpg) <% end %> center center no-repeat; background-size:cover;" class="profile-article-img"></div>
-                <h1><%= article.title %></h1>
+                <div onclick="window.location.href='/articles/<%= article.id %>'" style=" <% if article.cover? %> background: url(<%= article.cover.url(:medium) %>) <% else %> background: url(http://images.all-free-download.com/images/graphiclarge/blurred_golden_background_192849.jpg) <% end %> center center no-repeat; background-size:cover;" class="profile-article-img"></div>
+                <h1 onclick="window.location.href='/articles/<%= article.id %>'"><%= article.title %></h1>
                 <p><%= article.created_at.strftime('%B/%d/%Y') %></p>
                 <p class="is-published" style="color:rgb(200,50,50)"><% if !article.ispublished? %> Not Published Yet <% else %> <span style="color:rgb(50,200,50)">Published</span><% end %></p>
               </div>

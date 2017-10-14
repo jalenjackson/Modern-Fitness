@@ -140,7 +140,7 @@
               <h1><%= article.title %></h1>
             </a>
         <% end %>
-          <h1 style="cursor: pointer;" onclick="window.location.href='/user/<%= article.user.username %>'" class="parallax-scroll article-owner"><span> <div style="background: <% if article.user.avatar? %> url(<%= article.user.avatar.url(:medium) %>) <% else %> url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) <% end %>center center no-repeat; background-size:cover;" class="home-avatar"></div> <span style="margin-left: 10px;">By <%= article.user.first_name %> <%= article.created_at.strftime('%B/%d/%Y') %></span></h1>
+          <h1 style="cursor: pointer;" onclick="window.location.href='/user/<%= article.user.username %>'" class="parallax-scroll article-owner"><span> <div style="background: <% if article.user.avatar? %> url(<%= article.user.avatar.url(:medium) %>) <% else %> url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) <% end %>center center no-repeat; background-size:cover;" class="home-avatar"></div> <span style="margin-left: 10px;"> <span style="color:rgb(100,150,200);">By <%= article.user.first_name %> <%= article.created_at.strftime('%B/%d/%Y') %></span></h1>
           <h1 style=" transform: translateX(10px); cursor: pointer;" onclick="window.location.href='/articles/<%= article.id %>/likes'"><span style="color:rgb(100,150,200)"><%= article.get_upvotes.size %></span> <i style="color:red;" class="fa fa-heart"></i></h1>
       </div>
   <% end %>

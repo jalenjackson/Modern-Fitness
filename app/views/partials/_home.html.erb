@@ -183,7 +183,7 @@
               <div style="background: <% if article.user.avatar? %> url(<%= article.user.avatar.url(:medium) %>) <% else %> url(https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg) <% end %> center center no-repeat; background-size:cover; " class="media-object img-rounded avatar"></div>
             </a>
             <div class="media-body">
-              <h4 style="cursor: pointer; " onclick="window.location.href='/user/<%= article.user.username %>'" class="media-heading"><%= current_user.first_name + " " + current_user.last_name %></h4>
+              <h4 style="cursor: pointer; color:rgb(100,150,200) !important; " onclick="window.location.href='/user/<%= article.user.username %>'" class="media-heading"><%= current_user.first_name + " " + current_user.last_name %></h4>
               <p style="cursor: pointer;"  onclick="window.location.href='/articles/<%= article.id %>'"><%= article.title %></p>
               <div onclick="window.location.href='/articles/<%= article.id %>'" style=" cursor: pointer; background: url(<%= article.cover.url(:medium) %>) center center no-repeat; background-size: cover;" class="media-left-img"></div>
 
