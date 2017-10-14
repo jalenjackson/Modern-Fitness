@@ -131,7 +131,9 @@
   <%= @post.comments.count %> replies
 </h4>
 <%= render @post.comments %>
-<h3 style="font-size:14px;">Reply to the question</h3>
+    <h3 style="font-size:14px;">Reply to the question <% if !user_signed_in? %> <span onclick="window.location.href='/users/sign_in'" style="color:rgb(100,150,200); cursor: pointer;">sign in</span> <% end %></h3>
+
+    <% if user_signed_in? %>
 
 
   <%= form_for([@post, @post.comments.build]) do |f| %>
@@ -139,6 +141,7 @@
       <%= f.submit "Reply" %>
   <% end %>
 
+        <% end %>
 
 </div>
 
