@@ -9,12 +9,12 @@
 
 
 
-500.times do |i|
+100.times do |i|
   User.create(email:"test" + i.to_s + "@test.com", first_name:"John" + i.to_s, last_name: "Doe" + i.to_s, username: "test" + i.to_s , password: "bigship", password_confirmation: "bigship")
 end
 
 
-500.times do |i|
+100.times do |i|
   article = Article.new
   article.cover = URI.parse('http://cdn.pcwallart.com/images/japan-city-at-night-wallpaper-1.jpg').to_s
   article.title = "Article Test Title " + i.to_s
@@ -25,6 +25,6 @@ end
   print(article.errors.full_messages)
 end
 
-500.times do |i|
+100.times do |i|
   Post.create(title:"Test Question " + i.to_s, content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Why do we use it?It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.", user_id: 1)
 end
