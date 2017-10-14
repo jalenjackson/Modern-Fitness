@@ -83,7 +83,7 @@
 
   <div style="transform: translate(20px,35px);">
     <h1 class="profile-name" style="color:rgb(81,81,81);"><%= @user.first_name %> <%= @user.last_name %></h1>
-    <h1 <% if user_signed_in? && current_user.id == @user.id %> onclick="window.location.href='/friends'" <% else %> onclick="window.location.href='/user/<%= @user.username %>/friends'" <% end %>  style="font-size:12px !important; font-family: Roboto, sans-serif; cursor: pointer; color:rgb(150,150,150); " class="profile-name">Followers <%= @user.followers.count %> <span style="margin-left: 10px;">Following <%= @user.following.count %></span></h1>
+    <h1 <% if user_signed_in? && current_user.id == @user.id %> onclick="window.location.href='/friends'" <% else %> onclick="window.location.href='/user/<%= @user.username %>/friends'" <% end %>  style="font-size:12px !important; font-family: Roboto, sans-serif; cursor: pointer; color:rgb(100,150,200); " class="profile-name">Followers <%= @user.followers.count %> <span style="margin-left: 10px;">Following <%= @user.following.count %></span></h1>
   </div>
   <% if user_signed_in? %>
       <% if current_user.id == @user.id %>
