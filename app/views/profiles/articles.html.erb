@@ -65,7 +65,7 @@
       <div class="row">
 
         <% @articles.each do |article| %>
-            <div style="cursor: pointer;"  class="col-md-5th-1 col-sm-4 profile-articles">
+            <div onclick="window.location.href='/articles/<%= article.id %>'" style="cursor: pointer;"  class="col-md-5th-1 col-sm-4 profile-articles">
               <div style=" <% if article.cover? %> background: url(<%= article.cover.url(:medium) %>) <% else %> background: url(http://images.all-free-download.com/images/graphiclarge/blurred_golden_background_192849.jpg) <% end %> center center no-repeat; background-size:cover;" class="profile-article-img"></div>
               <h1><%= article.title %></h1>
               <p><%= article.created_at.strftime('%B/%d/%Y') %></p>
