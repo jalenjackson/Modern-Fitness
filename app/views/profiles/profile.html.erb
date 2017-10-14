@@ -140,7 +140,7 @@
 
           <% @user.posts.limit(8).each do |post| %>
               <div onclick="window.location.href='/posts/<%= post.id %>'" style="cursor: pointer; margin-top: 20px;"  class="col-md-5th-1 col-sm-4 profile-articles">
-                <h1><%= post.title %></h1>
+                <h1><%= truncate(post.title, length: 30) %></h1>
                 <p><%= post.created_at.strftime('%B/%d/%Y') %></p>
                 <p>replies <%= post.comments.count %></p>
               </div>
