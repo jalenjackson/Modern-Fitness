@@ -104,6 +104,7 @@
     }
 
 
+
 </style>
 
 
@@ -232,7 +233,7 @@
                 <img src="http://placehold.it/32x32" alt="" class="media-object img-rounded">
               </div>
               <div class="media-body">
-                <h4 class="media-heading"><%= user.first_name + " " + user.last_name %></h4>
+                <h4 onclick="window.location.href='/user/<%= user.username %>'" style=" cursor: pointer; color:rgb(100,150,200) !important;" class="media-heading"><%= user.first_name + " " + user.last_name %></h4>
 
 
 

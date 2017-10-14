@@ -203,7 +203,7 @@
 
       <% @posts.each do |post| %>
         <tr>
-          <td onclick="window.location.href='/posts/<%= post.id %>'" style="cursor: pointer; width: 350px;"><%= truncate(post.title, length: 100) %></td>
+          <td onclick="window.location.href='/posts/<%= post.id %>'" style="cursor: pointer; width: 350px; color:rgb(100,150,200) !important;"><%= truncate(post.title, length: 100) %></td>
           <td style="width: 220px;">
             <% post.comments.limit(5).each do |comment| %>
               <div onclick="window.location.href='/user/<%= comment.user.username %>'" style=" background: <% if comment.user.avatar? %> url(<%= comment.user.avatar.url(:medium) %>) <% else %> url(https://jira.xpand-addons.com/secure/useravatar?size=xsmall&avatarId=12316) <% end %> center center no-repeat; cursor: pointer; background-size: cover;" class="avatars"></div>
