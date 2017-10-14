@@ -386,9 +386,11 @@ a:hover
 
 
 .right-header-container {
-  float:right;
+  position: absolute;
+  right: 0;
   margin-right: 50px;
   margin-top:20px;
+  color:black !important;
 }
 
 .right-header-container a {

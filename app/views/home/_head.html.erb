@@ -1,4 +1,45 @@
+<style>
+  .-left-header-img {
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background:url(../leftheader.png);
+  }
 
+  .-left-header-img img {
+    position: absolute;
+    right: -100px;
+  }
+
+  .header-image {
+    background:white !important;
+    overflow: hidden;
+  }
+
+  .-right-header-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 0;
+    background:url(../right.png);
+  }
+
+    .right-header-container {
+      z-index: 99999999999999999999999999999999;
+    }
+
+    .right-header-container a {
+      color:black !important;
+    }
+
+    .fa-search {
+      color:black !important;
+    }
+</style>
 <!-- Using slick with turbolinks -->
 <% content_for :head do %>
     <meta name="turbolinks-cache-control" content="no-cache">
@@ -8,6 +49,18 @@
 <!-- Top Header Image -->
 <div class="header-image">
 
+
+
+
+
+
+
+  <div class="-left-header-img">
+    <img src="textureheader.png"/>
+  </div>
+  <div class="-right-header-img"></div>
+
+  <img style="position: absolute; margin: auto; left: 0; right: 0; top: 80px;" src="logo_large.png"/>
 
 
   <div class="right-header-container">
@@ -20,12 +73,6 @@
         <%= link_to "Sign up", new_user_registration_path  %> <span style="color: white;">|</span>  <%= link_to "Login", new_user_session_path  %>
         <i class="fa fa-search"></i>
     <% end %>
-  </div>
-
-  <div class="left-header-container">
-    <img src="https://cdn3.iconfinder.com/data/icons/peelicons-vol-1/50/Facebook-256.png"/>
-    <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-256.png"/>
-    <img src="https://www.tapwithbrad.com/wp-content/uploads/2015/06/Youtube-Black-Circle-Icon.png"/>
   </div>
 </div>
 <!-- End Top Header Image -->

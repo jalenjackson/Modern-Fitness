@@ -6,6 +6,18 @@
     .inside-six {
         white-space:normal !important;
     }
+    .header-image {
+        display: none;
+    }
+    .main-navbar a {
+        display: none;
+    }
+    .fa-bars {
+        display: block !important;
+    }
+    .mobile-title {
+        display: block !important;
+    }
 
 }
 
